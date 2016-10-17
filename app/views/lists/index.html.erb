@@ -11,7 +11,7 @@
       </tr>
     </thead>
     <tbody>
-      <% @s.each do |list| %>
+      <% @lists.each do |list| %>
         <tr>
           <td>#</td>
           <td><%= link_to(list.title, list_path(list)) %></td>
