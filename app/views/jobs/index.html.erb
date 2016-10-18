@@ -15,7 +15,9 @@
       <td>
         Description
       </td>
-
+<td>
+  公司名称
+</td>
     </tr>
   </thead>
   <tbody>
@@ -30,7 +32,9 @@
       <td>
         <%= job.description %>
       </td>
-
+<td>
+  <%= job.user.email %>
+</td>
       <td>
         <%= link_to("Delete",job_path(job), class:"btn btn-sm btn-default",method: :delete , data:{confirm: "Are you sure?"})%>
         <%= link_to("Edit",job_path(job),class:"btn btn-sm btn-default")%>
