@@ -5,19 +5,21 @@
   <table class="table table-hover">
     <thead>
       <tr>
-        <td>Job No.</td>
         <td>Title</td>
         <td>Description</td>
-        <td>Creator</td>
+        <td>Created At</td>
+        <td>Min Salary</td>
+        <td>Max Salary</td>
       </tr>
     </thead>
     <tbody>
       <% @jobs.each do |job| %>
         <tr>
-          <td>#</td>
           <td><%= link_to(job.title, job_path(job)) %></td>
           <td><%= job.description %></td>
-          <td><%= job.user.email %></td>
+          <td><%= job.created_at %>
+          <td><%= job.minsalary %>
+          <td><%= job.maxsalary %>
           <td>
             <% if current_user && current_user == job.user %>
               <%= link_to("Edit", edit_job_path(job), class: "btn btn-sm btn-default")%>
