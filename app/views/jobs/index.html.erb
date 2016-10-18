@@ -8,6 +8,9 @@
         <td>工作</td>
         <td>薪酬</td>
         <td>内容</td>
+        <% if current_user %>
+        <td>操作</td>
+        <% end %>
       </tr>
     </thead>
     
@@ -17,7 +20,13 @@
           <td>#</td>
           <td><%= job.title %></td>
           <td><%= "#{job.min_salary} ~ #{job.max_salary}"%></td>
-          <td><%= job.content %></td>
+          <td><%= job.description %></td>
+          <% if current_user %>
+            <td>
+              <%= link_to("编辑", edit_job_path(job), class: "btn btn-sm btn-default") %>
+              <%= link_to("删除", job_path(job), class: "btn btn-sm btn-default", method: :delete, data: { confirm: "确认删除信息？"}) %>
+            </td>
+          <% end %>
         </tr>
       <% end %>
     </tbody>

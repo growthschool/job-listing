@@ -14,16 +14,25 @@ class JobsController < ApplicationController
 		end
 	end
 
-	def delete
+	def destroy
+		@job = Job.find(params[:id])
+		@job.destroy
+		flash[:alert] = "已成功删除"
+		redirect_to jobs_path
 	end
 
 	def edit
+		@job = Job.find(params[:id])
 	end
 
 	def update
+		@job = Job.find(params[:id])
+		@job.update(job_params)
+		redirect_to jobs_path, notice: "更新成功"
 	end
 
 	def show
+		@job = Job.find(params[:id])
 	end
 
 	private
