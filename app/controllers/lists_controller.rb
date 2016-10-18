@@ -33,7 +33,7 @@ class ListsController < ApplicationController
     def update
 
 
-      if @list.update
+      if @list.update(lists_params)
         redirect_to lists_path, notice:'Update Success!'
       else
         render :edit
