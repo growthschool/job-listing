@@ -15,6 +15,11 @@ class JobsController < ApplicationController
     @job = Job.find(params[:id])
   end
 
+  # job的编辑操作
+  def edit
+    @job = Job.find(params[:id])
+  end
+
   # job的post操作
   def create
     @job = Job.new(job_params)
@@ -22,6 +27,15 @@ class JobsController < ApplicationController
 
     redirect_to jobs_path
   end
+
+  # job的put操作
+  def update
+    @job = Job.find(params[:id])
+    @job.update(job_params)
+
+    redirect_to jobs_path, notice: "Update Success"
+  end
+
 
   private
 
