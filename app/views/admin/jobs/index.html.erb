@@ -1,0 +1,47 @@
+<div class="pull-right">
+  <%= link_to("Add New Job", new_admin_job_path, :class => "btn btn-default" ) %>
+</div>
+
+<br><br>
+
+<div class="panel panel-default">
+  <div class="panel-heading">Admin View</div>
+<table class="table">
+  <thead>
+    <tr>
+      <td>Title</td>
+      <td>Description</td>
+      <td>Created At</td>
+      <td>Min Salary</td>
+      <td>Max Salary</td>
+      <td>Hidden?</td>
+    </tr>
+  </thead>
+  <tbody>
+    <% @jobs.each do |job| %>
+      <tr>
+        <td><%= link_to(job.title, job_path(job)) %></td>
+        <td><%= job.description %></td>
+        <td><%= job.created_at %>
+        <td><%= job.minsalary %>
+        <td><%= job.maxsalary %>
+        <td>
+        <% if job.is_hidden == true %>
+          <td>Private</td>
+        <% else %>
+          <td>Public</td>
+        <% end %>
+
+
+        <td>
+          <%# if current_user && current_user == job.user %>
+            <%= link_to("Edit", edit_admin_job_path(job), class: "btn btn-sm btn-default")%>
+            <%= link_to("Delete", admin_job_path(job),    class: "btn btn-sm btn-default",
+                        method: :delete, data: { confirm: "Are you sure?" } )%>
+          <%# end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
