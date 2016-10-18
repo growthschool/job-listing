@@ -8,44 +8,44 @@ class JobsController < ApplicationController
   end
 
   def show
-    @group = Group.find(params[:id])
+    @job = Job.find(params[:id])
   end
 
   def edit
-    @group = Group.find(params[:id])
+    @job = Job.find(params[:id])
   end
 
   def create
-    @group = Group.new(group_params)
+    @job = Job.new(job_params)
 
-    if @group.save
-      redirect_to groups_path
+    if @job.save
+      redirect_to jobs_path
     else
       render :new
     end
   end
 
   def update
-    @group = Group.find(params[:id])
-    if @group.update(group_params)
-      redirect_to groups_path, notice: 'Update Success'
+    @job = Job.find(params[:id])
+    if @job.update(job_params)
+      redirect_to jobs_path, notice: 'Update Success'
     else
       render :edit
     end
   end
 
   def destroy
-    @group = Group.find(params[:id])
+    @job = Job.find(params[:id])
 
-    @group.destroy
-    redirect_to groups_path, alert: 'Group deleted'
+    @job.destroy
+    redirect_to jobs_path, alert: 'Job deleted'
   end
 
   private
 
 
 
-  def group_params
-    params.require(:group).permit(:title, :description)
+  def job_params
+    params.require(:job).permit(:title, :description)
   end
 end
