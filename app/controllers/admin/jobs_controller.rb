@@ -3,11 +3,7 @@ class Admin::JobsController < ApplicationController
   before_action :require_is_admin
 
 
-  def require_is_admin
-    if !current_user.admin?
-      redirect_to jobs_path, alert:"You are not Master!"
-    end
-  end
+
 
 
   def index
