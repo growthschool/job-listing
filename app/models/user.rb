@@ -5,4 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :lists
+  has_many :postsing_lists, :through => :list_relationship, :source => :list
+end
 end
