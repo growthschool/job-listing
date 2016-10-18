@@ -1,0 +1,26 @@
+<div class="col-md-4 col-md-offset-4">
+    <h2>新增职位需求</h2>
+
+    <hr>
+    <%= form_for @list do |f| %>
+
+    标题
+    <%= f.text_field :title %>
+    <br>
+    薪资上线
+    <br>
+    <%= f.text_field :title %>
+    <br>
+    薪资下限
+    <br>
+    <%= f.text_field :title %>
+    <br>
+    内容
+    <br>
+    <%= f.text_area :description %>
+    <br>
+
+    <%= f.submit "Submit", :disable_with => 'Submiting...' %>
+    <% end %>
+
+</div>
