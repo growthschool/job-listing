@@ -5,5 +5,11 @@
     <% end %>
   </div>
   <h2><%= @job.title %></h2>
+  <h6>职位描述</h6>
   <p><%= @job.description %></p>
+  <h6>薪水范围</h6>
+  <p><%= @job.wage_lower_bound %> ~ 
+  <%= @job.wage_upper_bound %></p>
+  <h6>联系方式</h6>
+  <p><%= @job.contact_email %></p>
 </div>
