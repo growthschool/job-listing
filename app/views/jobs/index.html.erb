@@ -16,6 +16,7 @@
     </thead>
     <tbody>
       <% @jobs.each do |job| %>
+        <% if !job.is_hidden %>
         <tr>
           <td>#</td>
           <td><%= link_to(job.title, job_path(job)) %></td>
@@ -31,6 +32,7 @@
             <% end %>
           </td>
         </tr>
+        <% end %>
       <% end %>
     </tbody>
   </table>
