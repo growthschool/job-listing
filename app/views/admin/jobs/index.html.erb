@@ -1,0 +1,28 @@
+<div class="col-md-12">
+
+  <h2 class="text-center"> 我发表过的职缺 </h2>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th> # </th>
+        <th> Title </th>
+        <th> Description </th>
+        <th> Last Update </th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @jobs.each do |job| %>
+        <tr>
+          <td> # </td>
+          <td> <%= link_to(job.title, job_path(job)) %> </td>
+          <td> <%= job.description %> </td>
+          <td> <%= job.updated_at %> </td>
+          <td> <%= link_to('Edit', edit_job_path(job), class: "btn btn-default btn-xs") %></td>
+          <td> <%= link_to('Delete', job_path(job), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-default btn-xs") %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
