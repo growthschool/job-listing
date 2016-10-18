@@ -2,4 +2,27 @@
   <div class="group">
     <%= link_to("New Job", new_job_path, class: "btn btn-primary pull-right") %>
   </div>
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <td>标题</td>
+        <td>内容</td>
+        <td>薪资上限</td>
+      </tr>
+    </thead>
+    <tboby>
+      <% @jobs.each do |job| %>
+        <tr>
+          <td>#</td>
+          <td><%= link_to(job.title, job_path(job)) %></td>
+          <td><%= job.description %></td>
+          <td>
+            <%= link_to("Edit", edit_job_path(job), class: "btn btn-sm btn-default") %>
+            <%= link_to("Delete", job_path(job), class: "btn btn-sm btn-default",
+                        method: :delete, data: { confirm: "Are you sure?"}) %>
+          </td>
+        </tr>
+      <% end %>
+    </tboby>
+  </table>
 </div>
