@@ -14,6 +14,18 @@ class JobsController < ApplicationController
 		end
 	end
 
+	def delete
+	end
+
+	def edit
+	end
+
+	def update
+	end
+
+	def show
+	end
+
 	private
 	def job_params
 		params.require(:job).permit(:title, :content, :min_salary, :max_salary, :contact_info)
