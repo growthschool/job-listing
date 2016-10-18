@@ -1,10 +1,10 @@
-class JopsController < ApplicationController
+class JobsController < ApplicationController
   def index
     @jobs = Job.all
   end
 
   def new
-    @jobs = Job.new
+    @group = Group.new
   end
 
   def show
