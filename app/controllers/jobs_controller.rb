@@ -5,13 +5,15 @@ class JobsController < ApplicationController
   before_action :find_group_and_check_permission , only: [:edit, :update, :destroy]
   # job的get
   def index
-    @jobs = Job.all      
+    # 逆向排序
+    @jobs = Job.all.order("created_at DESC")
   end
 
   # job的新建表单渲染
   def new
     @job = Job.new
   end
+
 
   # job的查看操作
   def show
