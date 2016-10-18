@@ -6,9 +6,9 @@
     <thead>
       <tr>
         <td>#</td>
-        <td>Title</td>
-        <td>Description</td>
-        <td>Creator </td>
+        <td>职位名</td>
+        <td>描述</td>
+        <td>发布者 </td>
       </tr>
     </thead>
     <tbody>
@@ -20,9 +20,9 @@
            <td> <%= job.user.email %> </td>
           <td>
             <% if current_user && current_user == job.user %>
-              <%= link_to("Edit", edit_job_path(job), class: "btn btn-sm btn-default")%>
-              <%= link_to("Delete", job_path(job),    class: "btn btn-sm btn-default", 
-                          method: :delete, data: { confirm: "Are you sure?" } )%>
+              <%= link_to("编辑", edit_job_path(job), class: "btn btn-sm btn-default")%>
+              <%= link_to("删除", job_path(job),    class: "btn btn-sm btn-default", 
+                          method: :delete, data: { confirm: "确定删除?" } )%>
             <% end %>
           </td>
         </tr>

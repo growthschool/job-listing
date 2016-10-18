@@ -1,5 +1,5 @@
 <div class="pull-right">
-  <%= link_to("Add a job", new_admin_job_path, :class => "btn btn-default" ) %>
+  <%= link_to("发布职位", new_admin_job_path, :class => "btn btn-default" ) %>
 </div>
 
 <br><br>
@@ -11,8 +11,8 @@
       <%= link_to(job.title, admin_job_path(job)) %>
     </td>
     <td>
-      <%= link_to("Edit", edit_admin_job_path(job)) %> |
-      <%= link_to("Destroy", admin_job_path(job), :method => :delete, :data => { :confirm => "Are you sure?" }) %>
+      <%= link_to("编辑", edit_admin_job_path(job)) %> |
+      <%= link_to("删除", admin_job_path(job), :method => :delete, :data => { :confirm => "确定删除?" }) %>
     </td>
     <td>
       <%= job.created_at %>
