@@ -6,7 +6,7 @@
 
 <div class="panel panel-default">
   <div class="panel-heading">Admin View</div>
-<table class="table table-hover">
+<table class="table">
   <thead>
     <tr>
       <td>Title</td>
@@ -25,7 +25,12 @@
         <td><%= job.created_at %>
         <td><%= job.minsalary %>
         <td><%= job.maxsalary %>
-        <td><%= job.is_hidden %>
+        <td>
+        <% if job.is_hidden == true %>
+          <td>Private</td>
+        <% else %>
+          <td>Public</td>
+        <% end %>
 
 
         <td>
