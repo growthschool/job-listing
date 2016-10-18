@@ -4,7 +4,7 @@ class JobsController < ApplicationController
   end
 
   def new
-    @group = Group.new
+    @job = Job.new
   end
 
   def show
