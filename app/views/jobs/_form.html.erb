@@ -1,3 +1,4 @@
+
 <%= form_for @job do |f| -%>
 <% if @job.errors.any? %>
 <ul>
@@ -11,6 +12,7 @@
 <%= f.text_field :title %>
 <br>
 招聘岗位要求
+<%= f.text_area :description %>
 <br>
 <%= f.submit "Sbmit",:disable_with => 'Submitting ..' %>
 <% end -%>
