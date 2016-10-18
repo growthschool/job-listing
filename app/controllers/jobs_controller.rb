@@ -7,8 +7,11 @@ class JobsController < ApplicationController
   end
   def create
     @job = Job.new(job_params)
-    @job.save
+    if @job.save
     redirect_to jobs_path
+  else
+    render :new
+  end
   end
   def show
     @job = Job.find(params[:id])
@@ -26,7 +29,7 @@ class JobsController < ApplicationController
     @job.destroy
     flash[:alert] = "删除招聘信息"
     redirect_to jobs_path
-  end 
+  end
   private
   def job_params
     params.require(:job).permit(:title,:description)
