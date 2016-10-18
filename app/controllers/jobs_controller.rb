@@ -1,5 +1,5 @@
 class JobsController < ApplicationController
-  before_action :authenticate_user! , only: [:new]
+  before_action :authenticate_admin! , only: [:new]
 
   def index
     @jobs = Job.all
