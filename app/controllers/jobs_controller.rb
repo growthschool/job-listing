@@ -28,8 +28,13 @@ class JobsController < ApplicationController
     @job = Job.find(params[:id])
     @job.update(job_params)
     redirect_to jobs_path, notice: "Update Success"
-  end 
+  end
 
+  def destroy
+    @job = Job.find(params[:id])
+    @job.destroy
+    redirect_to jobs_path
+  end
 
   private
 
