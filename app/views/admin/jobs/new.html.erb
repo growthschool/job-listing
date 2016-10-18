@@ -31,6 +31,15 @@
 	<%= f.text_field :contact_email %>
 	<br>
 
+	是否对外隐藏
+	<%= f.radio_button :is_hidden, true, checked: @job.is_hidden %> 
+	<%= f.label :is_hidden, "隐藏" %>
+
+	<%= f.radio_button :is_hidden, false, checked: @job.is_hidden %>
+    <%= f.label :is_hidden, "公开" %>
+	<br>
+
+
 	<%= f.submit "发布信息", :disable_with => "提交中..." %>
 	<% end %>
 

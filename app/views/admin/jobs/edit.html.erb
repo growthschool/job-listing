@@ -31,6 +31,12 @@
 	<%= f.text_field :contact_email %>
 	<br>
 
+	是否对外隐藏
+	<%= f.select :is_hidden, [["隐藏", true], ["公开", false]] %>
+
+	<br>
+
+
 	<%= f.submit "更新信息", :disable_with => "提交中..." %>
 	<% end %>
 

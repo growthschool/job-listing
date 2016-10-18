@@ -12,6 +12,7 @@
         <td>内容</td>
         <% if current_user %>
         <td>操作</td>
+        <td>是否公开</td>
         <% end %>
       </tr>
     </thead>
@@ -29,6 +30,7 @@
               <%= link_to("删除", admin_job_path(job), class: "btn btn-sm btn-default", method: :delete, data: { confirm: "确认删除信息？"}) %>
             </td>
           <% end %>
+          <td><%= job.is_hidden ? "对外隐藏" : "对外公开" %></td>
         </tr>
       <% end %>
     </tbody>
