@@ -1,0 +1,12 @@
+<%= form_for @job do |f| %>
+
+  职缺名称
+  <%= f.text_field :title %>
+  <br>
+  职缺描述
+  <br>
+  <%= f.text_area :descripiton %>
+
+  <%= f.submit "提交职缺", :disable_with => '提交中。。。' %>
+
+<% end %>

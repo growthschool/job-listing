@@ -1,6 +1,7 @@
 <div class="col-md-12">
-  <h1 class="text-center">后台 Brave New World</h1>
-
+  <div class="group">
+    <%= link_to("发布新的职缺", new_job_path, class: 'btn btn-primary pull-right') %>
+  </div>
   <table class="table table-hover">
     <thead>
       <td> # </td>
@@ -20,8 +21,8 @@
             <%= job.descripiton %>
           </td>
           <td>
-            <%= link_to("修改", edit_admin_job_path(job), class: "btn btn-sm btn-default") %>
-            <%= link_to("删除", admin_job_path(job), method: :delete, class: "btn btn-sm btn-default", data: { confirm: "世界如此美好，你删个毛啊？"}) %>
+            <%= link_to("修改", edit_job_path(job), class: "btn btn-sm btn-default") %>
+            <%= link_to("删除", job_path(job), method: :delete, class: "btn btn-sm btn-default", data: { confirm: "世界如此美好，你删个毛啊？"}) %>
           </td>
         </tr>
       <% end %>
