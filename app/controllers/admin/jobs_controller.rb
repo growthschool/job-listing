@@ -14,6 +14,8 @@ class Admin::JobsController < ApplicationController
 		@job = Job.new(job_params)
 		if @job.save
 			redirect_to admin_jobs_path
+		else
+			render :new
 		end
 	end
 
@@ -34,8 +36,9 @@ class Admin::JobsController < ApplicationController
 		if @job.save
 			redirect_to admin_jobs_path, notice: "更新成功"
 		else
-			flash[:alert] = "更新信息失败"
-			redirect_to edit_admin_job_path
+			# flash[:alert] = "更新信息失败"
+			# redirect_to edit_admin_job_path
+			render :edit
 		end
 	end
 
@@ -54,7 +57,7 @@ class Admin::JobsController < ApplicationController
 	end
 
 	def job_params
-		params.require(:job).permit(:title, :description, :min_salary, :max_salary, :contact_info)
+		params.require(:job).permit(:title, :description, :wage_lower_bound, :wage_upper_bound, :contact_email)
 	end
 
 
