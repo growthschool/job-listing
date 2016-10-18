@@ -1,6 +1,5 @@
 class JobsController < ApplicationController
   before_filter :authenticate_user!, only:[:new,:create,:update,:edit,:destroy]
-  before_filter :require_is_admin
 
   def index
     @jobs=Job.all
@@ -12,15 +11,10 @@ class JobsController < ApplicationController
 
   def show
      @job=Job.find(params[:id])
-     redirect_to admin_jobs_path
+     redirect_to jobs_path
   end
 
-  def require_is_admin
-    if current_user.email != 'q884822@gmail.com'
-      flash[:alert] = 'You are no admin'
-      redirect_to root_path
-    end
-  end
+
 
   def edit
     @job=Job.find(params[:id])
