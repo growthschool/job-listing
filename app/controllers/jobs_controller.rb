@@ -1,6 +1,6 @@
 class JobsController < ApplicationController
   # 添加认证
-  before_action :authenticate_user! , only: [:new]
+  before_action :authenticate_user! , only: [:new, :create]
   # job的get
   def index
     @jobs = Job.all      
@@ -24,6 +24,7 @@ class JobsController < ApplicationController
   # job的post操作
   def create
     @job = Job.new(job_params)
+    @job.user = current_user
     if @job.save
       redirect_to jobs_path
     else
