@@ -1,17 +1,8 @@
 <div class="col-md-4 col-md-offset-4">
-    <h2>add a job</h2>
+    <h2>edit a job</h2>
 
     <hr>
     <%= simple_form_for @job do |f| %>
-    <% if @job.errors.any? %>
-    <ul>
-      <% @job.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-    </ul>
-    <% end %>
-
-
 
     标题
     <%= f.text_field :title %>

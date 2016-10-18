@@ -1,2 +1,3 @@
 class Job < ApplicationRecord
-end
+  validates :title, presence: true
+ end
