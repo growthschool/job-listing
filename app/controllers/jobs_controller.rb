@@ -5,12 +5,12 @@ class JobsController < ApplicationController
     @jobs = Job.all      
   end
 
-  # job的post
+  # job的新建表单渲染
   def new
     @job = Job.new
   end
 
-  # job的put
+  # job的post操作
   def create
     @job = Job.new(job_params)
     @job.save
