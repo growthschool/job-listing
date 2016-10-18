@@ -2,23 +2,5 @@
     <h2>新增职位需求</h2>
 
     <hr>
-    <%= form_for @list do |f| %>
-    <% if @list.errors.any? %>
-    <ul>
-      <% @list.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-    </ul>
-    <% end %>
-    标题
-    <%= f.text_field :title %>
-    <br>
-    内容
-    <br>
-    <%= f.text_area :description %>
-    <br>
-
-    <%= f.submit "Submit", :disable_with => 'Submiting...' %>
-    <% end %>
-
+    <%= render "form" %>
 </div>
