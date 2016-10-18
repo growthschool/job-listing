@@ -41,12 +41,6 @@ class Admin::JobsController < ApplicationController
     redirect_to admin_jobs_path, alert: "Job Deleted"
   end
 
-  def require_is_admin
-    if current_user.email != '66chiyaki@gmail.com'
-      flash[:alert] = 'You are not admin'
-      redirect_to root_path
-    end
-  end
 
   private
 
