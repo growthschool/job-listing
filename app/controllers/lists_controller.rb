@@ -14,14 +14,14 @@ class ListsController < ApplicationController
   def edit
 
 
-    if current_user !=@group.user
+    if current_user !=@list.user
       redirect_to root_pathm alert: "You have no permission"
     end
   end
 
 
   def create
-
+    @list = List.new(lists_params)
     @list.user = current_user
     if @list.save
       redirect_to lists_path
@@ -56,7 +56,7 @@ class ListsController < ApplicationController
     end
   end
 
-  def list_params
+  def lists_params
     params.require(:list).permit(:title, :description)
   end
 end
