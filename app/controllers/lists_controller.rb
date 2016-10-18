@@ -17,15 +17,21 @@ class ListsController < ApplicationController
 
   def create
     @list =  List.new(list_params)
-    @list.save
+    if@list.save
+     redirect_to lists_path
+   else
+     render :new
+   end
 
-       redirect_to lists_path
   end
 
   def update
     @list = List.find(params[:id])
-    @list.update(list_params)
+    if@list.update(list_params)
       redirect_to lists_path, notice: "Update Success !"
+    else
+      render :edit
+    end
   end
 
   def destroy
