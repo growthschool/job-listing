@@ -1,4 +1,5 @@
 class JobsController < ApplicationController
+
   def index
     @jobs = Job.all
   end
@@ -37,6 +38,12 @@ class JobsController < ApplicationController
   end
 
   private
+
+  def require_is_admin
+    if current_user.email != 'zengzheng@gmail.com'
+      redirect_to root_path, alert: 'You are not admin'
+    end
+  end
 
   def job_params
     params.require(:job).permit(:title, :description)
