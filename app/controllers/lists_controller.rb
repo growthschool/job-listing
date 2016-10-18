@@ -28,6 +28,12 @@ class ListsController < ApplicationController
       redirect_to lists_path, notice: "Update Success !"
   end
 
+  def destory
+    @list = List.find(params[:id])
+    @list.destory
+    flash[:alert] = "删除"
+      redirect_to lists_path
+    end 
   private
 
   def list_params
