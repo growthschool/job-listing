@@ -22,8 +22,11 @@ class JobsController < ApplicationController
   end
   def update
     @job = Job.find(params[:id])
-    @job.update(job_params)
-    redirect_to jobs_path ,notice:"修改成功！"
+    if @job.update(job_params)
+    redirect_to jobs_path
+  else
+    render :edit
+  end
   end
   def destroy
     @job = Job.find(params[:id])
