@@ -7,7 +7,7 @@ class Admin::JobsController < ApplicationController
   end
 
   def require_is_admin
-    if current_user.email != "hodor@rules.com"
+    unless current_user.admin?
       flash[:alert] = 'You are not Hodor!'
       redirect_to root_path
     end
@@ -22,7 +22,7 @@ class Admin::JobsController < ApplicationController
     @job.update(job_params)
 
     flash[:notice] = "HODOR Rules!"
-    redirect_to admin_jobs_path    
+    redirect_to admin_jobs_path
   end
 
   def destroy
