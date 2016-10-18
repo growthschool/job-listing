@@ -22,9 +22,17 @@ class JobsController < ApplicationController
     @job = Job.find(params[:id])
     @job.update(job_params)
 
+    flash[:notice] = "世界上唯一不变的就是改变"
     redirect_to jobs_path
   end
 
+  def destroy
+    @job = Job.find(params[:id])
+    @job.destroy
+
+    flash[:alert] = "你坏坏！"
+    redirect_to jobs_path
+  end
   private
 
   def job_params
