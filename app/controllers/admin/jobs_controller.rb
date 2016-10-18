@@ -2,12 +2,7 @@ class Admin::JobsController < ApplicationController
   before_filter :authenticate_user!,only:[:new,:edit,:create,:update,:destroy]
   before_filter :require_is_admin
 
-  def require_is_admin
-    if !current_user.admin?
-      flash[:alert] = 'You are no admin'
-      redirect_to root_path
-    end
-  end
+
 
   def index
     @jobs=Job.all
