@@ -20,9 +20,9 @@
           </a>
           <ul class="dropdown-menu">
             <% if current_user.admin? %>
-            <li><%= link_to("My Job Lists", admin_lists_path) %></li>
+            <li><%= link_to("My Job Lists Panel", admin_lists_path) %></li>
             <% end %>
-            
+
             <li><%= link_to("登出",destroy_user_session_path, method: :delete) %></li>
 
 
