@@ -1,6 +1,6 @@
 class JobsController < ApplicationController
   before_filter :authenticate_user!,only:[:new,:create,:update,:edit,:destroy]
-  
+
   def show
     @job = Job.find(params[:id])
   end
@@ -8,7 +8,7 @@ class JobsController < ApplicationController
     @jobs = Job.all
   end
   def new
-    @job = Job.new(job_params)
+    @job = Job.new
   end
   def create
     @job = Job.new(job_params)
@@ -37,7 +37,7 @@ class JobsController < ApplicationController
 
 private
 def job_params
-  params.require(:job).permit(:title,:description)
+  params.require(:job).permit(:title, :description)
 end
 
 end
