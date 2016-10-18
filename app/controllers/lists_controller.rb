@@ -24,10 +24,10 @@ class ListsController < ApplicationController
 
   def update
     @list = List.find(params[:id])
-    @list = updata(list_params)
-      redirect_to lists_path, notice: "UPdata Success !"
+    @list.update(list_params)
+      redirect_to lists_path, notice: "Update Success !"
   end
-   
+
   private
 
   def list_params
