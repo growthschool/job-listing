@@ -1,4 +1,6 @@
 class JobsController < ApplicationController
+
+
 	def index
 		@jobs = Job.where(:is_hidden => false).order("created_at DESC")
 	end
@@ -27,11 +29,15 @@ class JobsController < ApplicationController
 	# 	redirect_to jobs_path, notice: "更新成功"
 	# end
 
-	# def show
-	# 	@job = Job.find(params[:id])
-	# end
+	def show
+		@job = Job.find(params[:id])
+		if @job.is_hidden
+			redirect_to jobs_path, notice: "404"
+		end
+	end
 
-	# private
+	private
+
 	# def job_params
 	# 	params.require(:job).permit(:title, :description, :wage_lower_bound, :max_salary, :contact_info)
 	# end
