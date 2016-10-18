@@ -1,4 +1,5 @@
 class JobsController < ApplicationController
+  before_action :authenticate_user! , only: [:new, :create, :edit, :update, :destroy]
 
   def index
     @jobs = Job.all
@@ -21,6 +22,10 @@ class JobsController < ApplicationController
 
   def edit
     @job = Job.find(params[:id])
+
+    if current_user !=@job.user
+      redirect_to root_path , alert: "You have no permission."
+    end
   end
 
   def update
