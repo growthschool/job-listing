@@ -30,7 +30,13 @@
               <%= link_to("删除", admin_job_path(job), class: "btn btn-sm btn-default", method: :delete, data: { confirm: "确认删除信息？"}) %>
             </td>
           <% end %>
-          <td><%= job.is_hidden ? "对外隐藏" : "对外公开" %></td>
+
+          <% if job.is_hidden %>
+            <td><i class="fa fa-lock" aria-hidden="true"></i></td>
+          <% else %>
+            <td><i class="fa fa-globe" aria-hidden="true"></i></td>
+          <% end %>
+
         </tr>
       <% end %>
     </tbody>
