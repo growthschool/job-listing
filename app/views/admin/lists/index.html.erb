@@ -1,0 +1,27 @@
+<div class="col-md-12">
+
+  <h2 class="text-center">已经发布的职位</h2>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Last Update</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @lists.each do |list| %>
+      <tr>
+        <td>#</td>
+        <td><%= link_to(list.title,list_path(list)) %></td>
+        <td><%= list.title %></td>
+        <td><%= list.updated_at %></td>
+      </tr>
+    </tbody>
+
+  </table>
+
+</div>

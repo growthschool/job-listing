@@ -5,5 +5,10 @@ Rails.application.routes.draw do
      resources :lists
      root 'lists#index'
 
+     namespace :admin do
+       resources :lists
+     end
+     
+
 
 end
