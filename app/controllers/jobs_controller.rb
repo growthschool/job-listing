@@ -34,6 +34,7 @@ class JobsController < ApplicationController
     flash[:alert] = "你坏坏！"
     redirect_to jobs_path
   end
+
   private
 
   def job_params
