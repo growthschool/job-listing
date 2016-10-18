@@ -10,6 +10,11 @@ class JobsController < ApplicationController
     @job = Job.new
   end
 
+  # job的查看操作
+  def show
+    @job = Job.find(params[:id])
+  end
+
   # job的post操作
   def create
     @job = Job.new(job_params)
