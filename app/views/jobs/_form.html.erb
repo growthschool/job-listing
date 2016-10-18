@@ -1,0 +1,16 @@
+<%= form_for @job do |f| -%>
+<% if @job.errors.any? %>
+<ul>
+  <% @job.errors.full_messages.each do |msg| %>
+  <li><%= msg %> </li>
+  <% end %>
+
+</ul>
+<% end %>
+招聘岗位
+<%= f.text_field :title %>
+<br>
+招聘岗位要求
+<br>
+<%= f.submit "Sbmit",:disable_with => 'Submitting ..' %>
+<% end -%>
