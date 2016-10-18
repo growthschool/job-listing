@@ -10,21 +10,25 @@
     </thead>
     <tbody>
       <% @jobs.each do |job| %>
-        <tr>
-          <td>
-            #
-          </td>
-          <td>
-            <%= link_to(job.title, job_path(job)) %>
-          </td>
-          <td>
-            <%= job.descripiton %>
-          </td>
-          <td>
-            <%= link_to("修改", edit_job_path(job), class: "btn btn-sm btn-default") %>
-            <%= link_to("删除", job_path(job), method: :delete, class: "btn btn-sm btn-default", data: { confirm: "世界如此美好，你删个毛啊？"}) %>
-          </td>
-        </tr>
+
+        <% if !job.is_hidden %>
+          <tr>
+            <td>
+              #
+            </td>
+            <td>
+              <%= link_to(job.title, job_path(job)) %>
+            </td>
+            <td>
+              <%= job.descripiton %>
+            </td>
+            <td>
+              <%= link_to("修改", edit_job_path(job), class: "btn btn-sm btn-default") %>
+              <%= link_to("删除", job_path(job), method: :delete, class: "btn btn-sm btn-default", data: { confirm: "世界如此美好，你删个毛啊？"}) %>
+            </td>
+          </tr>
+        <% end %>
+
       <% end %>
     </tbody>
   </table>

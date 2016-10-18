@@ -3,8 +3,8 @@
 
   <hr>
 
-  <%= form_for [:admin, @job] do |f| %>
-  
+  <%= simple_form_for [:admin, @job] do |f| %>
+
     职缺名称
     <%= f.text_field :title %>
     <br>
@@ -24,6 +24,8 @@
     联系邮箱
     <br>
     <%= f.email_field :contact_email %>
+    <br>
+    <%= f.input :is_hidden %>
     <br>
     <%= f.submit "提交职缺", :disable_with => '提交中。。。' %>
 

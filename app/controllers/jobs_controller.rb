@@ -1,7 +1,7 @@
 class JobsController < ApplicationController
   before_action :authenticate_user!, only: [:edit]
   def index
-    @jobs = Job.all
+    @jobs = Job.all.order("created_at DESC")
   end
 
   def new
@@ -14,7 +14,7 @@ class JobsController < ApplicationController
 
     redirect_to jobs_path
   end
-  
+
   def show
     @job = Job.find(params[:id])
   end

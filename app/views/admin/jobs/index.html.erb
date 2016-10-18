@@ -11,7 +11,7 @@
       <% @jobs.each do |job| %>
         <tr>
           <td>
-            #
+            ＃
           </td>
           <td>
             <%= link_to(job.title, job_path(job)) %>
@@ -22,6 +22,12 @@
           <td>
             <%= link_to("修改", edit_admin_job_path(job), class: "btn btn-sm btn-default") %>
             <%= link_to("删除", admin_job_path(job), method: :delete, class: "btn btn-sm btn-default", data: { confirm: "世界如此美好，你删个毛啊？"}) %>
+          </td>
+          <td>
+            <%#= link_to("swith", switch_hidden_admin_job_path(job), method: :post, class: "btn" ) %>
+            <% if !job.is_hidden %>
+            <% else %>
+            <% end %>
           </td>
         </tr>
       <% end %>
