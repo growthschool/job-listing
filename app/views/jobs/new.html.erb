@@ -1,6 +1,8 @@
-<div>
-  <h2>新增工作职缺</h2>
+<h1>Add a job</h1>
+  <%= simple_form_for @job do |f| %>
+  <%= f.input :title %>
+  <%= f.input :description %>
 
-  <h2>
-    <%= render "form" %>
-</div>
+  <%= f.submit "Submit" %>
+
+<% end %>
