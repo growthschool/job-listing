@@ -14,6 +14,10 @@ class JobsController < ApplicationController
 
     redirect_to jobs_path
   end
+  
+  def show
+    @job = Job.find(params[:id])
+  end
 
   def edit
     @job = Job.find(params[:id])
@@ -38,6 +42,6 @@ class JobsController < ApplicationController
   private
 
   def job_params
-    params.require(:job).permit(:title, :descripiton)
+    params.require(:job).permit(:title, :descripiton, :wage_upper_bound, :wage_lower_bound, :contact_email)
   end
 end
