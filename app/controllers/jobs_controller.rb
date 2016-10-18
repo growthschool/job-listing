@@ -36,6 +36,13 @@ class JobsController < ApplicationController
     redirect_to jobs_path, notice: "Update Success"
   end
 
+  # job的delete操作
+  def destroy
+    @job = Job.find(params[:id])
+    @job.destroy
+    flash[:alert] = "Job deleted"
+    redirect_to jobs_path
+  end
 
   private
 
