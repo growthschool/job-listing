@@ -1,5 +1,6 @@
 class JobsController < ApplicationController
-
+  # 添加认证
+  before_action :authenticate_user! , only: [:new]
   # job的get
   def index
     @jobs = Job.all      
