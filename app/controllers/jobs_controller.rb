@@ -7,8 +7,12 @@ class JobsController < ApplicationController
     @job = Job.new
   end
 
+  def show
+    @job = Job.find(params[:id])
+  end
+
   def create
-    @job = job.new(job_params)
+    @job = Job.new(job_params)
     if @job.save
       redirect_to jobs_path
     else
@@ -16,9 +20,10 @@ class JobsController < ApplicationController
     end
   end
 
+
   private
 
   def job_params
     params.require(:job).permit(:title, :description)
-  end 
+  end
 end
