@@ -26,22 +26,22 @@ before_filter :authenticate_user!, only: [:new, :create, :update, :edit, :destro
      end
    end
 
-  def update
+   def update
      @job = Job.find(params[:id])
      if @job.update(job_params)
-
-     redirect_to jobs_path, notice: "Update Success"
-   else
+       redirect_to jobs_path
+     else
        render :edit
      end
    end
 
-  def destroy
-      @job = Job.find(params[:id])
-      @job.destroy
-      flash[:alert] = "Job deleted"
-     redirect_to jobs_path
-    end
+   def destroy
+       @job = Job.find(params[:id])
+
+       @job.destroy
+
+       redirect_to jobs_path
+     end
 
   private
 
