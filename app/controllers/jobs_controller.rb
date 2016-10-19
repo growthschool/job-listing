@@ -6,6 +6,7 @@ class JobsController < ApplicationController
 
   # 未发布职位重定向
   before_action :check_ifpublish, only: [:show]
+  
   # job的get
   def index
     # 逆向排序
@@ -59,7 +60,7 @@ class JobsController < ApplicationController
 
 
   private
-  
+
   # 表单项目
   def job_params
     params.require(:job).permit(:title,:description,:title,:wage_upper_bound, :wage_lower_bound, :contact_email)

@@ -5,6 +5,9 @@ class Admin::JobsController < ApplicationController
   # 限定admin
   before_filter :require_is_admin
 
+  # 设定主页
+  layout "admin"
+
   # job的get
   def index
     @jobs = Job.all      
