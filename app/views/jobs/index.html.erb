@@ -8,6 +8,8 @@
         <td>标题</td>
         <td>内容</td>
         <td>薪资上限</td>
+        <td>薪资下限</td>
+        <td>联系方式</td>
       </tr>
     </thead>
     <tboby>
@@ -16,6 +18,8 @@
           <td>#</td>
           <td><%= link_to(job.title, job_path(job)) %></td>
           <td><%= job.description %></td>
+          
+
           <td>
             <%= link_to("Edit", edit_job_path(job), class: "btn btn-sm btn-default") %>
             <%= link_to("Delete", job_path(job), class: "btn btn-sm btn-default",
