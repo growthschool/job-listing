@@ -1,5 +1,5 @@
 class JobsController < ApplicationController
-  before_action :authenticate_user! , only: [:new, :create, :update, :destroy, :edit]
+  before_action :authenticate_user! , only: [:new, :create, :update, :destroy, :edit, :show]
   #before_action :find_job_and_check_permission, only: [:edit, :update, :destroy]
 
 
@@ -14,6 +14,10 @@ class JobsController < ApplicationController
 
   def show
     @job = Job.find(params[:id])
+    unless @job.is_hidden == false || current_user.admin?
+      flash[:alert] = "Unauthorized"
+      redirect_to root_path
+    end
   end
 
   def create
