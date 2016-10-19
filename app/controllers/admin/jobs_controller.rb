@@ -25,6 +25,26 @@ class Admin::JobsController < ApplicationController
     @job = Job.find(params[:id])
   end
 
+  # 可以改变状态按钮
+  def publish
+    @job = Job.find(params[:id])
+    @job.is_publish = true
+    @job.save
+
+    redirect_to :back
+  end
+
+  def private
+    @job = Job.find(params[:id])
+    @job.is_publish = false
+    @job.save
+
+    redirect_to :back    
+  end
+
+
+
+
   # job的post操作
   def create
     @job = Job.new(job_params)
@@ -59,7 +79,7 @@ class Admin::JobsController < ApplicationController
 
 
   def job_params
-    params.require(:job).permit(:title,:description,:title,:wage_upper_bound, :wage_lower_bound, :contact_email, :is_publish)
+    params.require(:job).permit(:title,:description,:wage_upper_bound, :wage_lower_bound, :contact_email, :is_publish)
   end
 
 end
