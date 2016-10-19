@@ -3,4 +3,5 @@
 	<hr>
 	<%= simple_format(@job.description) %>
 	<%= simple_format("#{@job.wage_lower_bound}") %>
+	<%= link_to "提交简历", new_job_resume_path(@job), class: "btn btn-primary" %>
 </div>
