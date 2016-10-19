@@ -14,7 +14,8 @@
       <td>Created At</td>
       <td>Min Salary</td>
       <td>Max Salary</td>
-      <td>Status</td>
+      <td align = "center">Status</td>
+      <td align = "center">Actions</td>
     </tr>
   </thead>
   <tbody>
@@ -25,10 +26,7 @@
         <td><%= job.created_at %>
         <td><%= job.minsalary %>
         <td><%= job.maxsalary %>
-        <td>
-
-
-
+        <td align = "center">
 
 
         <% if job.is_hidden == true %>
@@ -38,12 +36,18 @@
         <% end %>
 
 
-        <td>
+        <td align = "center">
           <%# if current_user && current_user == job.user %>
             <%= link_to("Edit", edit_admin_job_path(job), class: "btn btn-sm btn-default")%>
             <%= link_to("Delete", admin_job_path(job),    class: "btn btn-sm btn-default",
                         method: :delete, data: { confirm: "Are you sure?" } )%>
           <%# end %>
+            <% if job.is_hidden %>
+
+              <%= link_to("Publish", publish_admin_job_path(job) , :method => :post, :class => "btn btn-sm btn-default") %>
+            <% else %>
+              <%= link_to("Hide", hide_admin_job_path(job), :method => :post,  :class => "btn btn-sm btn-default") %>
+            <% end %>
         </td>
       </tr>
     <% end %>
