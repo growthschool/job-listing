@@ -5,6 +5,20 @@
 <br><br>
 
 <table class="table table-boldered">
+  <tr>
+    <td>
+      #
+    </td>
+    <td>
+      option
+    </td>
+    <td>
+      time
+    </td>
+    <td>
+      state
+    </td>
+  </tr>
   <% @jobs.each do |job| %>
   <tr>
     <td>
@@ -17,6 +31,14 @@
     <td>
       <%= job.created_at %>
     </td>
+    <td>
+      <% if job.is_hidden %>
+             (Hidden)
+          <% else %>
+             (Public)
+          <% end %>
+    </td>
+
   </tr>
   <% end %>
 </table>
