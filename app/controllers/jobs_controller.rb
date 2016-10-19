@@ -10,6 +10,9 @@ before_action :authenticate_user! , only: [:edit, :destroy, :new, :create, :upda
 
   def show
     @job = Job.find(params[:id])
+    if @job.is_hidden
+      redirect_to root_path, warning: "This Job already archieved."
+    end
   end
 
   def edit
