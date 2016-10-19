@@ -3,6 +3,9 @@ class JobsController < ApplicationController
   before_action :authenticate_user! , only: [:new, :create, :edit, :update, :destroy]
   # 查权限做路人重定向
   before_action :find_group_and_check_permission , only: [:edit, :update, :destroy]
+
+  # 未发布职位重定向
+  before_action :check_ifpublish, only: [:show]
   # job的get
   def index
     # 逆向排序
@@ -56,7 +59,8 @@ class JobsController < ApplicationController
 
 
   private
-
+  
+  # 表单项目
   def job_params
     params.require(:job).permit(:title,:description,:title,:wage_upper_bound, :wage_lower_bound, :contact_email)
   end
@@ -68,6 +72,15 @@ class JobsController < ApplicationController
     if current_user != @job.user
       redirect_to root_path, alert: "You have no permission."
     end
+  end
+
+  # 用于检查职位是否已经发布
+  def check_ifpublish
+    @job = Job.find(params[:id])
+
+    if !@job.is_publish
+      redirect_to root_path, alert: "This Job is not published."
+    end    
   end
 
 
