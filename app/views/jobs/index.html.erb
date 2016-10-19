@@ -3,13 +3,24 @@
 
   </div>
   <table class="table table-hover">
-
+    <thead>
+      <tr>
+        <td>Job</td>
+        <td>description</td>
+        <td>Upper Bound Wage (￥)</td>
+        <td>Lower Bound Wage (￥)</td>
+        <td>Contact Email</td>
+      </tr>
+    </thead>
     <tbody>
       <% @jobs.each do |job| %>
         <tr>
 
           <td><%= link_to(job.title, job_path(job)) %></td>
-
+          <td><%= job.description %></td>
+          <td><%= job.wage_upper_bound %></td>
+          <td><%= job.wage_lower_bound %></td>
+          <td><%= job.contact_email %></td>
 
           </td>
         </tr>
