@@ -2,6 +2,13 @@
   <%= link_to("Add New Job", new_admin_job_path, :class => "btn btn-default" ) %>
 </div>
 
+<nav class="navbar navbar-default navbar-fixed-right">
+  <div class="container">
+    ...
+  </div>
+</nav>
+
+
 <br><br>
 
 <div class="panel panel-default">
@@ -14,7 +21,7 @@
       <td>Created At</td>
       <td>Min Salary</td>
       <td>Max Salary</td>
-      <td>Hidden?</td>
+      <td>Status</td>
     </tr>
   </thead>
   <tbody>
@@ -26,10 +33,15 @@
         <td><%= job.minsalary %>
         <td><%= job.maxsalary %>
         <td>
+
+
+
+
+
         <% if job.is_hidden == true %>
-          <td>Private</td>
+          <i class="fa fa-lock" aria-hidden="true"></i>
         <% else %>
-          <td>Public</td>
+          <i class="fa fa-globe" aria-hidden="true"></i>
         <% end %>
 
 

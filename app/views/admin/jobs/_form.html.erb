@@ -1,17 +1,17 @@
 <%= simple_form_for [:admin, @job] do |f| %>
   <div class="form-group">
 
-    <%= f.input :title, input_html: { class: "form-control"} %>
-    <%= f.input :description, input_html: { class: "form-control"} %>
-    <%= f.input :email, input_html: { class: "form-control"} %>
-    <%= f.input :minsalary, input_html: { class: "form-control"} %>
-    <%= f.input :maxsalary, input_html: { class: "form-control"} %>
+    <%= f.input :title %>
+    <%= f.input :description %>
+    <%= f.input :email %>
+    <%= f.input :minsalary %>
+    <%= f.input :maxsalary %>
 
-    <% if current_user.admin? %>
-      <%= f.input :is_hidden, as: :boolean, checked_value: true, unchecked_value: false, :default => false %>
+        <% if current_user.admin? %>
+          <%= f.input :is_hidden, as: :boolean, checked_value: true, unchecked_value: false, :default => false %>
+        <% end %>
+
+
+    </div>
+      <%= f.submit "Submit", class: "btn btn-primary", data: { disable_with: "Submitting..." } %>
     <% end %>
-
-
-</div>
-  <%= f.submit "Submit", class: "btn btn-primary", data: { disable_with: "Submitting..." } %>
-<% end %>

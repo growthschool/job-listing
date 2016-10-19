@@ -14,7 +14,7 @@
     </thead>
     <tbody>
       <% @jobs.each do |job| %>
-      <% if job.is_hidden == false %>
+
         <tr>
           <td><%= link_to(job.title, job_path(job)) %></td>
           <td><%= job.description %></td>
@@ -28,7 +28,7 @@
               <%= link_to("Delete", job_path(job),    class: "btn btn-sm btn-default",
                           method: :delete, data: { confirm: "Are you sure?" } )%>
             <%# end %>
-            <% end %>
+
           </td>
         </tr>
         <% end %>
