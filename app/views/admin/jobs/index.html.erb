@@ -8,7 +8,12 @@
   <% @jobs.each do |job| %>
   <tr>
     <td>
-      <%= link_to(job.title, admin_job_path(job)) %>
+      <% if job.is_hidden %>
+      (Hidden)
+      <% else %>
+      (public)
+      <% end %> 
+     <%= link_to(job.title, admin_job_path(job)) %>
     </td>
     <td>
       <%= link_to(job.wage_upper_bound,admin_job_path(job)) %>
