@@ -10,7 +10,7 @@ before_filter :authenticate_user!, only: [:new, :create, :update, :edit, :destro
    end
 
    def show
-     @show = Job.find(params[:id])
+     @job = Job.find(params[:id])
    end
 
    def edit
@@ -27,16 +27,16 @@ before_filter :authenticate_user!, only: [:new, :create, :update, :edit, :destro
    end
 
    def update
-     @job = job.find(params [:id])
+     @job = Job.find(params[:id])
      if @job.update(job_params)
-       rediect_to jobs_path, notice: 'Update Success'
+       redirect_to jobs_path, notice: 'Update Success'
      else
        render :edit
      end
    end
 
    def destroy
-     @job = job.find(params[:id])
+     @job = Job.find(params[:id])
      @job.destroy
      redirect_to jobs_path, alert: 'Job deleted'
    end
