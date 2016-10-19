@@ -1,0 +1,11 @@
+<h1> 发布新职位 </h1>
+
+<%= simple_form_for [:admin,@job] do |f| %>
+
+<%= f.input :title %>
+<%= f.input :description %>
+    <%= f.input :wage_lower_bound, input_html: { class: "form-control"} %>
+    <%= f.input :wage_upper_bound, input_html: { class: "form-control"} %>
+    <%= f.input :contact_email, input_html: { class: "form-control"} %>
+  <%= f.submit "提交" %>
+<% end %>
