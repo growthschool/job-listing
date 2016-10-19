@@ -1,18 +1,4 @@
-<% if @resume.errors.any? %>
-	<div class="alert alert-error">
-		<ul>
-			<% @resume.errors.full_messages.each do |msg| %>
-			<li><%= msg %></li>
-			<% end %>
-		</ul>
-	</div>
-	
+<%= simple_form_for [:job, @resume] do |f| %>
+	<%= f.input :attachment %>
+	<%= f.submit "提交", class: "btn btn-primary" %>
 <% end %>
-
-
-<div>
-	<%= form_for @resume, url: job_resumes_path do |f| %>
-		<%= f.file_field :attachment %>
-		<%= f.submit "提交简历", class: "btn btn-primary" %>
-	<% end %>
-</div>

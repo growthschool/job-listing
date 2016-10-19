@@ -40,6 +40,7 @@ class JobsController < ApplicationController
 
 	def show
 		@job = Job.find(params[:id])
+		@resume = Resume.new
 		if @job.is_hidden
 			redirect_to jobs_path, notice: "404"
 		end

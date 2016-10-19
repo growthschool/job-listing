@@ -1,5 +1,7 @@
 class ResumesController < ApplicationController
 
+	before_action :authenticate_user!
+
 	def index
 		@resumes = Resume.all
 	end
@@ -23,7 +25,7 @@ class ResumesController < ApplicationController
 	end
 
 	def destroy
-		@resume = Resume.find(params[:job_id])
+		@resume = Resume.find(params[:job_id]) #should be updated!!
 		@resume.destroy
 		redirect_to job_resumes_path, notice: "简历成功删除"
 	end
@@ -31,7 +33,7 @@ class ResumesController < ApplicationController
 	private
 
 	def resume_params
-		params.require(:resume).permit(:attachment)
+		params.require(:resume).permit([:attachment, :user_id, :job_id])
 	end
 
 

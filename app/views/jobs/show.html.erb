@@ -3,5 +3,19 @@
 	<hr>
 	<%= simple_format(@job.description) %>
 	<%= simple_format("#{@job.wage_lower_bound}") %>
-	<%= link_to "提交简历", new_job_resume_path(@job), class: "btn btn-primary" %>
+	<% if current_user %>
+
+	
+<!-- 		<%= link_to "上传简历", new_job_resume_path(@job), class: "btn btn-primary" %>
+ -->
+
+		<!-- test code -->
+		<%= simple_form_for @resume, url: job_resumes_path(@job) do |f| %>
+			<%= f.input :attachment %>
+			<%= f.submit "提交", class: "btn btn-primary" %>
+		<% end %>
+
+
+	<% end %>
+	
 </div>
