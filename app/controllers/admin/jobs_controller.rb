@@ -28,16 +28,21 @@ class Admin::JobsController < ApplicationController
 
   def update
     @job = Job.find(params[:id])
-    @job.detroy
+    if @job.update(job_params)
+      redirect_to admin_jobs_path
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @job = Job.find(params[:id])
+    @job.destroy
     redirect_to admin_jobs_path
   end
 
   private
-  def require_is_admin
-    if current_user.email != 'zengzheng@gmail.com'
-      redirect_to root_path, alert: 'You are not admin'
-    end
-  end
+
 
   def job_params
     params.require(:job).permit(:title,:description)
