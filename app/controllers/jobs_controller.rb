@@ -2,16 +2,18 @@ class JobsController < ApplicationController
   before_filter :authenticate_user!, only:[:new,:create,:update,:edit,:destroy]
 
   def index
-    @jobs=Job.all
+    @jobs=Job.where(:is_hidden => false)
+
   end
 
   def new
     @job=Job.new
+
   end
 
   def show
      @job=Job.find(params[:id])
-     redirect_to jobs_path
+
   end
 
 
@@ -22,8 +24,8 @@ class JobsController < ApplicationController
 
   def create
     @job=Job.new(job_params)
-    @job.user = current_user
-    if @job.save
+
+    if @job.save!
       redirect_to jobs_path
     else
       render :new
@@ -50,6 +52,6 @@ class JobsController < ApplicationController
   private
 
   def job_params
-    params.require(:job).permit(:title,:description,:wage_upper_bound,:wage_lower_bound,:contact_email)
+    params.require(:job).permit(:title,:description,:wage_upper_bound,:wage_lower_bound,:contact_email,:is_hidden)
   end
 end
