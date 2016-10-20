@@ -11,16 +11,26 @@ class ResumesController < ApplicationController
 	end
 
 	def create
-		@resume = Resume.new(resume_params)
-		@resume.job_id = params[:job_id]
-		@resume.user_id = current_user.id
 
+		@resume = Resume.new
+		@job = Job.find(params[:job_id])
 
-		if @resume.save
-			@job = Job.find(params[:job_id])
-			redirect_to job_path(@job), notice: "成功上传了简历"
-		else
-			render :new
+		if params[:resume]
+			@resume.attachment = params[:resume]["attachment"]
+			@resume.job_id = params[:job_id]
+			@resume.user_id = current_user.id
+
+			if @resume.save
+				@job = Job.find(params[:job_id])
+				redirect_to job_path(@job), notice: "成功上传了简历"
+			else
+			# render :new
+				@job = Job.find(params[:job_id])			
+				redirect_to job_path(@job), alert: "未上传简历"
+			end
+		
+		else 
+			redirect_to job_path(@job), alert: "未上传简历"
 		end
 	end
 
@@ -32,9 +42,9 @@ class ResumesController < ApplicationController
 
 	private
 
-	def resume_params
-		params.require(:resume).permit([:attachment, :user_id, :job_id])
-	end
-
+	# def resume_params
+		# params.require(:resume).permit([:attachment, :user_id, :job_id])
+		# params.permit([:attachment, :user_id, :job_id, :utf8, :authenticity_token, :resume, :commit])
+	# end
 
 end
