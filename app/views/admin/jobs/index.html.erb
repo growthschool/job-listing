@@ -7,7 +7,7 @@
 <table class="table table-boldered">
   <tr>
     <td>
-      #
+      State
     </td>
     <td>
       option
@@ -15,13 +15,12 @@
     <td>
       time
     </td>
-    <td>
-      state
-    </td>
+
   </tr>
   <% @jobs.each do |job| %>
   <tr>
     <td>
+      <%= render_job_status(job) %>
       <%= link_to(job.title, admin_job_path(job)) %>
     </td>
     <td>
@@ -31,13 +30,19 @@
     <td>
       <%= job.created_at %>
     </td>
+
     <td>
+      
+
+
       <% if job.is_hidden %>
-             (Hidden)
-          <% else %>
-             (Public)
-          <% end %>
+
+        <%= link_to("Publish", publish_admin_job_path(job) , :method => :post, :class => "btn btn-xs btn-default") %>
+      <% else %>
+        <%= link_to("Hide", hide_admin_job_path(job), :method => :post,  :class => "btn btn-xs btn-default") %>
+      <% end %>
     </td>
+
 
   </tr>
   <% end %>
