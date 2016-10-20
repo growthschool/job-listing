@@ -21,7 +21,7 @@
     <tbody>
       <% @jobs.each do |job| %>
         <tr>
-          <td> # </td>
+          <td> <i class="fa fa-lock" aria-hidden="true"></i> </td>
           <td> <%= link_to(job.title, job_path(job)) %> </td>
           <td> <%= job.description %> </td>
           <td> <%= job.updated_at %> </td>
