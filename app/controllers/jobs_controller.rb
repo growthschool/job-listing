@@ -11,40 +11,41 @@ class JobsController < ApplicationController
 
   end
 
-  def new
-    @job = Job.new
-  end
 
-  def create
-    @job = Job.new(job_params)
+  #  def new
+  #    @job = Job.new
+  #  end
 
-    if @job.save
-      redirect_to jobs_path
-    else
-      render :new
-    end
-  end
+  #  def create
+  #    @job = Job.new(job_params)
 
-  def edit
-    @job = Job.find(params[:id])
-  end
+  #    if @job.save
+  #      redirect_to jobs_path
+  #    else
+  #      render :new
+  #    end
+  #  end
 
-  def update
-    @job = Job.find(params[:id])
-    if @job.update(job_params)
-      redirect_to jobs_path
-    else
-      render :edit
-    end
-  end
+  #  def edit
+  #    @job = Job.find(params[:id])
+  #  end
 
-  def destroy
-    @job = Job.find(params[:id])
+  #  def update
+  #    @job = Job.find(params[:id])
+  #    if @job.update(job_params)
+  #      redirect_to jobs_path
+  #    else
+  #      render :edit
+  #    end
+  #  end
 
-    @job.destroy
+  #  def destroy
+  #    @job = Job.find(params[:id])
 
-    redirect_to jobs_path
-  end
+  #    @job.destroy
+  #
+  #    redirect_to jobs_path
+  #  end
 
   private
 
