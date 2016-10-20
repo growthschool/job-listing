@@ -6,6 +6,7 @@ class Admin::JobsController < ApplicationController
    @job = Job.find(params[:id])
  end
 
+
  def index
    @jobs = Job.all
  end
@@ -26,6 +27,10 @@ class Admin::JobsController < ApplicationController
 
  def edit
    @job = Job.find(params[:id])
+ end
+
+ def update
+   @job = Job.find(params[:id])    
    if @job.update(job_params)
      redirect_to admin_jobs_path
    else
@@ -40,7 +45,7 @@ class Admin::JobsController < ApplicationController
  end
 
  def require_is_admin
-   if current_user.eamil != 'feiben365@gmail.com'
+   if current_user.email != 'feiben365@gmail.com'
      flash[:alert] = 'You are not admin'
      redirect_to root_path
    end
@@ -49,7 +54,6 @@ class Admin::JobsController < ApplicationController
  private
 
  def job_params
-   params.require(:job).permit(:title, :description)
- end
-
+    params.require(:job).permit(:title, :description)
+  end
 end
