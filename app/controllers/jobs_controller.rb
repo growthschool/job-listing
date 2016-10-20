@@ -39,6 +39,12 @@ class JobsController < ApplicationController
     @job = Job.find(params[:id])
 
     @job.destroy
-    redirect_to groups_path, alert: 'Group deleted'
-  end 
+    redirect_to job_path, alert: 'Job deleted'
+  end
+
+  private
+
+  def job_params
+    params.require(:job).permit(:title, :description)
+  end
 end
