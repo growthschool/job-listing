@@ -1,6 +1,7 @@
 class Admin::JobsController < ApplicationController
   before_filter :authenticate_user!, only: [:new, :create, :update, :edit, :destroy]
   before_filter :require_is_admin
+  before_action :require_is_hidden,only: [:show]
 
   def show
     @job = Job.find(params[:id])
@@ -59,6 +60,15 @@ class Admin::JobsController < ApplicationController
     @job.save
 
     redirect_to :back
+  end
+
+  def require_is_hidden
+    @job = Job.find(params[:id])
+
+    if @job.is_hidden
+      flash[:alert] = '这个工作是隐藏的'
+      redirect_to :back
+    end
   end
 
 

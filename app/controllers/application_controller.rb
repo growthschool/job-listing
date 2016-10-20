@@ -8,4 +8,11 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def require_is_hidden
+    if !current_job.is_hidden?
+      flash[:alert] = '这个工作是隐藏的'
+      redirect_to root_path
+    end
+  end
+
 end

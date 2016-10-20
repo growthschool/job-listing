@@ -9,14 +9,10 @@
   <tr>
 
     <td>
-      <% if job.is_hidden %>
-           (Hidden)
-           <%= job.title %>
-        <% else %>
-           (Public)
-           <%= link_to(job.title, admin_job_path(job)) %>
-        <% end %>
 
+      <%= render_job_status(job) %>
+
+      <%= link_to(job.title, admin_job_path(job)) %>
 
     </td>
     <td><%= job.description %></td>
