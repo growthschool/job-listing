@@ -1,6 +1,7 @@
 class Admin::JobsController < ApplicationController
   before_filter :authenticate_user!, only: [:new, :create, :update, :edit, :destroy]
   before_filter :require_is_admin
+  layout "admin"
 
   def publish
     @job = Job.find(params[:id])
@@ -39,6 +40,7 @@ class Admin::JobsController < ApplicationController
   def edit
     @job = Job.find(params[:id])
   end
+
   def update
     @job = Job.find(params[:id])
     if @job.update(job_params)
