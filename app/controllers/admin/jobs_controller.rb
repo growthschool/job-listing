@@ -53,7 +53,7 @@ class Admin::JobsController < ApplicationController
 
 
   def admin_jobs_path
-    params.repuire(:job).permit(:title, :descrption, :wage_upper_bound, :wage_lower_bound, :contact_email)
+    params.repuire(:job).permit(:title, :descrption, :wage_upper_bound, :wage_lower_bound, :contact_email, :is_hidden)
   end
 
 
