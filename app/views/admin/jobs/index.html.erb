@@ -10,18 +10,18 @@
     <td>
       <td>
 
-<% if job.is_hidden %>
-       <i class="fa fa-lock" aria-hidden="true"></i>
-    <% else %>
-       <i class="fa fa-globe" aria-hidden="true"></i>
-    <% end %>
-
+    <%= render_job_status(job) %>
     <%= link_to(job.title, admin_job_path(job)) %>
   </td>
-  
+
     <td>
       <%= link_to("Edit", edit_admin_job_path(job)) %>
       <%= link_to("Destroy", admin_job_path(job), :method => :delete, :data => { :confirm => "Are you sure?" }) %>
+      <% if job.is_hidden %>
+      <%= link_to("Publish", publish_admin_job_path(job) , :method => :post, :class => "btn btn-xs btn-default") %>
+      <% else %>
+      <%= link_to("Hide", hide_admin_job_path(job), :method => :post, :class => "btn btn-xs btn-default") %>
+      <% end %>
     </td>
     <td>
       <%= job.created_at %>
