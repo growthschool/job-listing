@@ -30,6 +30,14 @@
               <%= link_to("Edit", edit_admin_job_path(job), class: "btn btn-sm btn-default")%>
               <%= link_to("Delete", admin_job_path(job),    class: "btn btn-sm btn-default",
                           method: :delete, data: { confirm: "Are you sure?" } )%>
+
+              <% if job.is_hidden %>
+                <%= link_to("Publish", publish_admin_job_path(job), :method => :post, class: "btn btn-sm btn-default")%>
+              <% else %>
+                <%= link_to("Hide", hide_admin_job_path(job), :method => :post, class: "btn btn-sm btn-default")%>
+              <% end %>
+
+
           </td>
         </tr>
       <% end %>
