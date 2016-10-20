@@ -16,6 +16,8 @@
           <li class="dropdown" >
             <a href="#" class="dropodown-toggle" data-toggle="dropdown">
               Hi!, <%= current_user.email %>
+              <li><%= link_to("Admin Panel", admin_jobs_path) %> </li>
+              <li><%= link_to("Sign out", destroy_user_session_path, method: :delete) %></li>
               <b class="caretv"></b>
             </a>
             <ul class="dropdown-menu">
