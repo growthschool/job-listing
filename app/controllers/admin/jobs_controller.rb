@@ -1,9 +1,10 @@
 class Admin::JobsController < ApplicationController
   before_filter :authenticate_user!,only:[:new,:edit,:create,:update,:destroy]
   before_filter :require_is_admin
+  layout "admin"
 
   def index
-    @jobs=Job.all
+    @jobs=Job.order("created_at DESC")
   end
 
   def new
