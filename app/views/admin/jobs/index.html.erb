@@ -3,10 +3,12 @@
 </div>
 
 <br><br>
-sfssd
 <table class="table table-boldered">
   <% @jobs.each do |job| %>
   <tr>
+    <td>
+      <%= render_job_status(job) %>
+    </td>
     <td>
       <%= link_to(job.title, admin_job_path(job)) %>
     </td>
@@ -16,6 +18,13 @@ sfssd
     </td>
     <td>
       <%= job.created_at %>
+    </td>
+    <td>
+      <% if !job.is_hidden %>
+        <%= link_to("Hide it!", hide_this_job_admin_job_path(job), :method => :post, class: "btn btn-default") %>
+      <% else %>
+        <%= link_to("Publish it!", publish_this_job_admin_job_path(job), method: :post, class: "btn btn-primary") %>
+      <% end %>
     </td>
   </tr>
   <% end %>

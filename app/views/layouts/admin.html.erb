@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>JobListing1</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+
+    <div class="container-fluid">
+      <%= render "common/navbar" %>
+      <%= render "common/flashes" %>
+
+      <div class="row">
+        <div class="col-md-2">
+          <!-- sidebar content -->
+          <ul class="nav nav-pills nav-stacked" style="max-width: 300px; padding-top:20px;">
+            <li class="active"><%= link_to("Jobs", admin_jobs_path ) %> </li>
+            <li class="active"><%= link_to("前台", jobs_path ) %> </li>
+          </ul>
+        </div>
+
+        <div class="col-md-10">
+          <!-- Body content -->
+          <%= yield %>
+        </div>
+      </div>
+      <!-- /.row-fluid -->
+    </div>
+    <!-- /.container-fluid -->
+
+    <%= render "common/footer" %>
+  </body>
+</html>

@@ -5,7 +5,8 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :jobs do
       member do
-
+        post :hide_this_job
+        post :publish_this_job
       end
     end
 
