@@ -10,9 +10,12 @@ class JobsController < ApplicationController
 
   def create
     @job = Job.new(job_params)
-    @job.save
 
-    redirect_to jobs_path
+    if @job.save
+      redirect_to jobs_path
+    else
+      render :new
+    end
   end
 
   def show
@@ -25,10 +28,13 @@ class JobsController < ApplicationController
 
   def update
     @job = Job.find(params[:id])
-    @job.update(job_params)
 
-    flash[:notice] = "世界上唯一不变的就是改变"
-    redirect_to jobs_path
+    if @job.update(job_params)
+      flash[:notice] = "世界上唯一不变的就是改变"
+      redirect_to jobs_path
+    else
+      render :edit
+    end
   end
 
   def destroy

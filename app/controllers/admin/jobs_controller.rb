@@ -19,10 +19,12 @@ class Admin::JobsController < ApplicationController
 
   def update
     @job = Job.find(params[:id])
-    @job.update(job_params)
-
-    flash[:notice] = "HODOR Rules!"
-    redirect_to admin_jobs_path
+    if @job.update(job_params)
+      flash[:notice] = "HODOR Rules!"
+      redirect_to admin_jobs_path
+    else
+      render :edit
+    end
   end
 
   def destroy
