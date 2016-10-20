@@ -13,7 +13,12 @@ Rails.application.routes.draw do
   		end
   	end
 
-    resources :users 
+    resources :users do
+      member do
+        post :to_admin
+        post :to_user
+      end
+    end
     
   end
 
