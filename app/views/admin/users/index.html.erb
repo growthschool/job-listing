@@ -1,1 +1,44 @@
-<h1>Users</h1>
+<div class="container"> 
+  <h2>用户管理</h2>
+
+    <div class="col-md-12">
+  
+      <table class="table table-hover">
+        <thead>
+          <tr>
+          	  <td>#</td>
+           	  <td>用户邮箱</td>
+              <td>操作</td>
+              <td>是否提交过简历</td>
+           </tr>
+        </thead>
+    
+        <tbody>
+           <% @users.each do |user| %>
+           <tr>
+           <td>#</td>
+           
+           <td><%= user.email %></td>
+           
+           <% if current_user %>
+            <td>
+              <%= link_to("编辑", edit_admin_user_path(user), class: "btn btn-sm btn-default") %>
+              <%= link_to("删除", admin_user_path(user), class: "btn btn-sm btn-default", method: :delete, data: { confirm: "确认删除用户？"}) %>
+            </td>
+           <% end %>
+
+			<% if @resumes.find_by_user_id(user.id) %>
+				<td><i class="fa fa-check" aria-hidden="true"></i></td>
+			<% else %>
+				<td><i class="fa fa-close" aria-hidden="true"></i></td>
+			<% end %>
+            
+            </tr>
+            <% end %>
+         </tbody>
+
+      </table>
+
+    </div>
+</div>
+
