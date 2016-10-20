@@ -3,6 +3,8 @@ class Admin::JobsController < ApplicationController
   before_filter :require_is_admin
   before_action :require_is_hidden,only: [:show]
 
+  layout "admin"
+
   def show
     @job = Job.find(params[:id])
   end
