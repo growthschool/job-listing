@@ -1,34 +1,22 @@
-<div class="col-md-12">
-  <h1 class="text-center">后台 Brave New World</h1>
-
-  <table class="table table-hover">
-    <thead>
-      <td> # </td>
-      <td> Title </td>
-      <td> Description </td>
-    </thead>
-    <tbody>
-      <% @jobs.each do |job| %>
-        <tr>
-          <td>
-            <% if job.is_hidden  %>
-              <label class="label label-warning">private</label>
-            <% else %>
-              <label class="label label-success">public</label>
-            <% end %>
-          </td>
-          <td>
-            <%= link_to(job.title, job_path(job)) %>
-          </td>
-          <td>
-            <%= job.descripiton %>
-          </td>
-          <td>
-            <%= link_to("修改", edit_admin_job_path(job), class: "btn btn-sm btn-default") %>
-            <%= link_to("删除", admin_job_path(job), method: :delete, class: "btn btn-sm btn-default", data: { confirm: "世界如此美好，你删个毛啊？"}) %>
-          </td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
+<div class="pull-right">
+  <%= link_to("Add a job", new_admin_job_path, class: "btn btn-default") %>
 </div>
+
+<br><br>
+sfssd
+<table class="table table-boldered">
+  <% @jobs.each do |job| %>
+  <tr>
+    <td>
+      <%= link_to(job.title, admin_job_path(job)) %>
+    </td>
+    <td>
+      <%= link_to("Edit", edit_admin_job_path(job)) %>
+      <%= link_to("Destroy", admin_job_path(job), method: :delete, data: {confirm: "Are you sure?"}) %>
+    </td>
+    <td>
+      <%= job.created_at %>
+    </td>
+  </tr>
+  <% end %>
+</table>

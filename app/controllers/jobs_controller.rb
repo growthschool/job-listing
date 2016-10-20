@@ -12,6 +12,7 @@ class JobsController < ApplicationController
     @job = Job.new(job_params)
 
     if @job.save
+      flash[:notice] = "已上传成功，请等待管理员处理"
       redirect_to jobs_path
     else
       render :new
@@ -30,7 +31,7 @@ class JobsController < ApplicationController
     @job = Job.find(params[:id])
 
     if @job.update(job_params)
-      flash[:notice] = "世界上唯一不变的就是改变"
+      flash[:notice] = "修改成功"
       redirect_to jobs_path
     else
       render :edit
