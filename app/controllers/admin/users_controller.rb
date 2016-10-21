@@ -3,7 +3,11 @@ class Admin::UsersController < ApplicationController
 	layout "admin"
 
 	def index
-		@users = User.all
+		
+		@users = User.where(id: current_user.id)
+		@users += User.where(is_admin: true).where.not(id: current_user.id)
+		@users += User.where(is_admin: false).where.not(id: current_user.id)
+
 		@resumes = Resume.all
 	end
 

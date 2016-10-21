@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
+    
   	resources :jobs do
   		member do
   			post :hide
