@@ -1,6 +1,27 @@
-<div class="pull-right">
-  <%= link_to("Add a job", new_job_path, class: 'btn btn-default') %>
+<div>
+  <%= link_to("Add a job", new_job_path, class: 'btn btn-primary') %>
 </div>
+
+<div class="dropdown pull-right">
+  <a href="#" class="dropdown-toggle btn btn-default" data-toggle="dropdown">
+    排序
+    <b class="caret"></b>
+  </a>
+  <ul class="dropdown-menu" aria-labelledby="dropdownMenuDivider">
+    <li>
+      <%= link_to("按照薪资下限排序", jobs_path(order: "by_wage_lower_bound")) %>
+    </li>
+    <li>
+      <%= link_to("按照薪资上限排序", jobs_path(order: "by_wage_upper_bound")) %>
+    </li>
+    <li>
+      <%= link_to("按照发表时间排序", jobs_path ) %>
+    </li>
+  </ul>
+</div>
+
+
+<br>
 
 <table class="table table-boldered">
   <% @jobs.each do |job| %>
@@ -18,3 +39,9 @@
   </tr>
   <% end %>
 </table>
+
+<br><br>
+
+<div class="pull-right">
+  <%= link_to("Add a job", new_job_path, class: 'btn btn-primary') %>
+</div>
