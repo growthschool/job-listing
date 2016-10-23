@@ -1,21 +1,14 @@
-<div class="pull-right">
-  <%= link_to("Add a job", new_job_path, :class => "btn btn-default" ) %>
-</div>
+<h1>Add a Job</h1>
 
- <br><br>
-<table class="table table-boldered">
-  <% @jobs.each do |job| %>
-  <tr>
-    <td>
-      <%= link_to(job.title, admin_job_path(job)) %>
-    </td>
-    <td>
-      <%= link_to("Edit", edit_admin_job_path(job)) %> |
-      <%= link_to("Destroy", admin_job_path(job),:method=> :delete, :data=>{:confirm =>"Are you sure?"}) %>
-    </td>
-    <td>
-      <%= job.created_at %>
-    </td>
-  </tr>
-  <% end %>
-</table>
+<%= simple_form_for @job do |f| %>
+
+
+<%= f.input :title %>
+<%= f.input :description %>
+<%= f.input :wage_upper_bound, :label => "薪资上限" %>
+<%= f.input :wage_lower_bound, :label =>"薪资下限" %>
+<%= f.input :contact_email, :label=> "联系方式" %>
+<%= f.submit "Submit" %>
+
+
+<% end %>
