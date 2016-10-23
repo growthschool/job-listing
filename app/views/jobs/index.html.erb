@@ -1,0 +1,47 @@
+<div>
+  <%= link_to("Add a job", new_job_path, class: 'btn btn-primary') %>
+</div>
+
+<div class="dropdown pull-right">
+  <a href="#" class="dropdown-toggle btn btn-default" data-toggle="dropdown">
+    排序
+    <b class="caret"></b>
+  </a>
+  <ul class="dropdown-menu" aria-labelledby="dropdownMenuDivider">
+    <li>
+      <%= link_to("按照薪资下限排序", jobs_path(order: "by_wage_lower_bound")) %>
+    </li>
+    <li>
+      <%= link_to("按照薪资上限排序", jobs_path(order: "by_wage_upper_bound")) %>
+    </li>
+    <li>
+      <%= link_to("按照发表时间排序", jobs_path ) %>
+    </li>
+  </ul>
+</div>
+
+
+<br>
+
+<table class="table table-boldered">
+  <% @jobs.each do |job| %>
+  <tr>
+    <td>
+      <%= link_to(job.title, job_path(job)) %>
+    </td>
+    <td>
+      <%= link_to("edit", edit_job_path(job)) %>
+      <%= link_to("Destroy", job_path(job), method: :delete, data: { confirm: "Are you sure?"}) %>
+    </td>
+    <td>
+      <%= job.created_at %>
+    </td>
+  </tr>
+  <% end %>
+</table>
+
+<br><br>
+
+<div class="pull-right">
+  <%= link_to("Add a job", new_job_path, class: 'btn btn-primary') %>
+</div>
