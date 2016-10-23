@@ -1,5 +1,24 @@
-<h1><%= @job.title %></h1>
+<div class="container-fluid text-center">
 
-<p>
-  <%= simple_format(@job.descripiton) %>
-</p>
+  <h1><%= @job.title %></h1>
+
+
+  <p>
+    <%= simple_format(@job.descripiton) %>
+    <br>
+    工资上限
+    <br>
+    <%= @job.wage_upper_bound %>
+    <br>
+    工资下限
+    <br>
+    <%= @job.wage_lower_bound %>
+    <br>
+    联系方式
+    <br>
+    <%= @job.contact_email %>
+  </p>
+
+
+   <%= link_to("申请并上传简历", new_job_resume_path(@job), class: "btn btn-primary") %>
+</div>
