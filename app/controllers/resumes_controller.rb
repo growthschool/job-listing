@@ -10,8 +10,13 @@ class ResumesController < ApplicationController
         @resume.job = @job
         @resume.user = current_user
 
-        @resume.save
-        redirect_to job_path(@job), notice: "Upload Success"
+        if  @resume.save
+            redirect_to job_path(@job), notice: "Upload Success"
+        else
+            render :new
+        end
+
+
     end
 
     def new
@@ -42,7 +47,7 @@ class ResumesController < ApplicationController
     private
 
     def resume_params
-        params.require(:resume).permit(:attachment)
+        params.require(:resume).permit(:content, :attachment)
     end
 
 end
