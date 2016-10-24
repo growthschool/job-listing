@@ -10,7 +10,14 @@ class JobsController < ApplicationController
   # job的get
   def index
     # 逆向排序
-    @jobs = Job.all.order("created_at DESC")
+    @jobs = case params[:order]
+    when 'by_lower_bound'
+      Job.where(is_publish: true).order('wage_lower_bound DESC')
+    when 'by_upper_bound'
+      Job.where(is_publish: true).order('wage_upper_bound DESC')
+    else
+      Job.where(is_publish: true).order("created_at DESC")
+    end
   end
 
   # job的新建表单渲染
