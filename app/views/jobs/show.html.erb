@@ -12,3 +12,23 @@
   <p>
     <%= simple_format(@job.contact_email) %>
   </p>
+  <%= link_to("提交简历",new_job_resume_path(@job),class:"btn btn-default pull-right")%>
+
+  <table class="table">
+  <thead>
+    <tr>
+      <th>简历内容</th>
+      <th>简历发表者</th>
+      <th>简历发表时间</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @resumes.each do |resume| %>
+      <tr>
+        <td><%= resume.content %></td>
+        <td><%= resume.user.email%></td>
+        <td><%= resume.created_at%></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
