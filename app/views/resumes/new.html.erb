@@ -2,11 +2,11 @@
 
 <hr>
 
-<%= simple_form for [@job. @resume] do |f| %>
+<%= simple_form_for [@job, @resume] do |f| %>
   <%= f.input :content %>
+  <%= f.input :attachment %>
 
 
 
-
-  <%= f.submit “投递” %>
+  <%= f.submit "投递" %>
   <% end %>
