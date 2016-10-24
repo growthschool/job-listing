@@ -1,9 +1,11 @@
 <div class="col-md-12">
+  <%= link_to "新的应聘书", new_resume_path, class: "btn btn-primary" %>
+
   <div class="dropdown pull-right">
     <button type="button" class="btn dropdown-toggle" data-toggle="dropdown"> 排序
       <span class="caret"></span>
     </button>
-    
+
     <ul class="dropdown-menu" aria-labelledby="dropdownMenuDivider">
       <li>
         <%= link_to("按照薪资下限排序", jobs_path(:order => "by_lower_bound")) %>
