@@ -1,0 +1,18 @@
+<% if !@resume.errors.empty? %>
+  <div class="alert alert-error">
+    <ul>
+      <% @resume.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<h1>申请并提交简历</h1>
+<div class="well">
+  <%= simple_form_for [@job, @resume] do |f| %>
+    <%= f.input :content %>
+    <%= f.input :attachment %>
+    <%= f.submit "提交", class: "btn btn-primary" %>
+  <% end %>
+</div>

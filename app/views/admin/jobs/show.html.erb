@@ -1,0 +1,16 @@
+<h1> <%= @job.title %> - 简历列表 </h1>
+
+<% @resumes.each do |resume| %>
+  <div class="well">
+    <%= resume.user.email %>
+    <hr>
+    <%= resume.content %>
+    <hr>
+    <% if resume.attachment.present? %>
+      <i class="fa fa-paperclip"></i>
+      <%= link_to("下载这份简历", resume.attachment_url) %>
+    <% else %>
+      没有简历看个毛啊
+    <% end %>
+  </div>
+<% end %>
