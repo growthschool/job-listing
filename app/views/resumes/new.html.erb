@@ -1,0 +1,12 @@
+<h3>投递简历到<%= @job.title %></h3>
+
+<hr>
+
+<%= simple_form for [@job. @resume] do |f| %>
+  <%= f.input :content %>
+
+
+
+
+  <%= f.submit “投递” %>
+  <% end %>
