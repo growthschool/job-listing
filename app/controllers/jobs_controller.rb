@@ -3,11 +3,14 @@ class JobsController < ApplicationController
 
   def show
     @job = Job.find(params[:id])
+    @resumes = @job.resumes
 
     if @job.is_hidden
       flash[:warning] = "This Job has been archieved."
       redirect_to root_path
     end
+
+
   end
 
   def index
@@ -20,7 +23,7 @@ class JobsController < ApplicationController
               Job.where(:is_hidden => false).order("created_at DESC")
             end
   end
-  
+
   def new
     @job = Job.new
   end
