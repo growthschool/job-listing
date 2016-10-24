@@ -6,4 +6,6 @@
   <%= @job.wage_lower_bound %>
   <%= simple_format(@job.contact_email) %>
 
+  <%= link_to("Apply and Upload your Resume", new_job_resume_path(@job), class: "btn btn-primary pull-right") %>
+
 </p>
