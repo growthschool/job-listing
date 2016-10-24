@@ -18,4 +18,5 @@ class Job < ApplicationRecord
     self.save
   end
 
+  scope :recent, -> { order("created_at DESC")}
 end
