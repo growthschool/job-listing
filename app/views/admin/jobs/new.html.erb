@@ -1,0 +1,27 @@
+<h2>发布新的招聘信息</h2>
+<div class="col-md-4 col-md-offset-4">
+	<hr>
+	<%= simple_form_for [:admin, @job] do |f| %>
+
+	<%= f.input :title %>
+	<br>
+
+	<%= f.input :wage_lower_bound %>
+	<br>
+
+	<%= f.input :wage_upper_bound %>
+	<br>	
+
+	<%= f.input :contact_email %>
+	<br>
+
+	<%= f.input :is_hidden %>
+
+	<%= f.input :description %>
+	<br>
+
+	<%= f.submit "发布信息", :disable_with => "提交中..." %>
+	<% end %>
+
+
+</div>
