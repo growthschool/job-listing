@@ -1,0 +1,18 @@
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th>Content</th>
+      <th>Download Link</th>
+      <th>&nbsp;</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <%= @resumes.each do |resume| %>
+    <tr>
+      <td><%= resume.content %></td>
+      <td><%= link_to "Download Resume", resume.attachment_url %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
