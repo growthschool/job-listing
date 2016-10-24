@@ -1,0 +1,19 @@
+<h2 class="text-center">新增简历</h2>
+
+<div class="col-md-4 col-md-offset-4">
+  <%= simple_form_for [@job,@post] do |f| %>
+    <div class="form-group">
+      <%= f.input :content, input_html: { class: "form-control"} %>
+    </div>
+
+   <div class="well" >
+     <%= f.label :attachment %>
+     <%= f.file_field :attachment %>
+     <%= f.submit "Save", class: "btn btn-primary" %>
+   </div>
+
+    <div class="form-actions">
+      <%= f.submit "Submit", disable_with: "Submiting...", class: "btn btn-primary"%>
+    </div>
+  <% end %>
+</div>
