@@ -6,5 +6,7 @@
   <p><b>Description: </b><%= @job.description %></p>
   <p><b>Minimum Salary: </b><%= @job.minsalary %></p>
   <p><b>Maximum Salary: </b><%= @job.maxsalary %></p>
-  
+
+  <%= link_to("Apply", new_job_resume_path(@job), class: "btn btn-default pull-right")%>
+
 </div>

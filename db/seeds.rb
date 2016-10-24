@@ -15,11 +15,11 @@ create_account = User.create([email: 'dyz2102@gmail.com', password: '12345678', 
 puts "Normal account created."
 
 create_jos = for i in 1..10 do
-  Job.create!([title: "Job no.#{i}", description: "Seed created Public job #{i} ", maxsalary: rand(50..99)*100, minsalary: rand(10..49)*100, is_hidden: "false"])
+  Job.create!([title: "Job no.#{i}", description: "Seed created Public job #{i} ", maxsalary: rand(50..99)*100, minsalary: rand(10..49)*100, is_hidden: "false", resume: nil])
 end
 puts "10 Public jobs created."
 
 create_jos = for i in 1..10 do
-  Job.create!([title: "Job no.#{i+10}", description: "Seed created Hidden job #{i+10} ", maxsalary: rand(50..99)*100, minsalary: rand(10..49)*100,is_hidden: "true"])
+  Job.create!([title: "Job no.#{i+10}", description: "Seed created Hidden job #{i+10} ", maxsalary: rand(50..99)*100, minsalary: rand(10..49)*100,is_hidden: "true", resume: nil])
 end
 puts "10 Hidden jobs created."

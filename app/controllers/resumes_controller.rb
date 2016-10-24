@@ -10,10 +10,14 @@ class ResumesController < ApplicationController
   end
 
   def create
+    @job = Job.find(params[:job_id])
     @resume = Resume.new(resume_params)
 
+    @resume.job = @job
+    @resume.user = current_user
+
     if @resume.save
-      redirect_to resumes_path
+      redirect_to job_path(@job), notice: "The resume #{@resume.name} has been uploaded."
     else
       render "new"
     end
@@ -22,7 +26,7 @@ class ResumesController < ApplicationController
   def destroy
     @resume = Resume.find(params[:id])
     @resume.destroy
-    redirect_to resumes_path, alert: "The resume #{@resume.name} has been deleted."
+    redirect_to admin_jobs_path, alert: "The resume #{@resume.name} has been deleted."
   end
 
 private

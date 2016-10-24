@@ -15,6 +15,7 @@
       <td>Min Salary</td>
       <td>Max Salary</td>
       <td align = "center">Status</td>
+      <td align = "center"># Applicants</td>
       <td align = "center">Actions</td>
     </tr>
   </thead>
@@ -35,6 +36,9 @@
           <i class="fa fa-globe" aria-hidden="true"></i>
         <% end %>
 
+        <!-- <td><%= job.resume %></td> -->
+
+        <td align = "center"><%= link_to(job.resumes.count, job_resumes_path(job)) %></td>
 
         <td align = "center">
           <%# if current_user && current_user == job.user %>

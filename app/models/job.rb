@@ -14,5 +14,6 @@ class Job < ActiveRecord::Base
     self.save
   end
 
+  has_many :resumes
 
 end
