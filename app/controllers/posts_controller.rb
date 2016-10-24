@@ -14,7 +14,7 @@ def create
   @post.user = current_user
 
   if @post.save
-    redirect_to job_path(@job), notice: "The resume #{@resume.name} has been uploaded."
+    redirect_to jobs_path#(@job), notice: "The resume #{@resume.name} has been uploaded."
   else
     render :new
   end

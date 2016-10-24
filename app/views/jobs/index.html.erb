@@ -20,23 +20,38 @@
 </div>
 
 
-
 <table class="table table-boldered">
+  <thead>
+    <tr>
+      <th>职缺</th>
+      <th>薪资上限</th>
+      <th>薪资下限</th>
+      <th>发表时间</th>
+    </tr>
+
+  </thead>
+
   <% @jobs.each do |job| %>
+
   <tr>
     <td>
       <%= render_job_status(job) %>
       <%= link_to(job.title, job_path(job)) %>
     </td>
 
+
     <td>
-      <%= link_to("Edit", edit_job_path(job)) %>
-      <%= link_to("Destroy", job_path(job), :method => :delete, :data => { :confirm => "Are you sure?"}) %>
+      <%= link_to(job.wage_upper_bound,job_path(job))%>
+    </td>
+
+    <td>
+      <%= link_to(job.wage_lower_bound,job_path(job))%>
     </td>
 
     <td>
       <%= job.created_at %>
     </td>
+
   </tr>
    <% end %>
  </table>
