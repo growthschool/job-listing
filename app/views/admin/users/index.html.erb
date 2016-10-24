@@ -1,0 +1,71 @@
+<div class="container"> 
+  <h2>用户管理</h2>
+
+    <div class="col-md-12">
+  
+      <table class="table table-hover">
+        <thead>
+          <tr>
+          	  <td>权限</td>
+           	  <td>用户邮箱</td>
+              <td>操作</td>
+              <td>是否提交过简历</td>
+              <td>简历下载</td>
+           </tr>
+        </thead>
+    
+        <tbody>
+           <% @users.each do |user| %>
+           <tr>
+           <% if user.is_admin %>
+           		<td><i class="fa fa-user" aria-hidden="true"></i></td>
+           <% else %>
+           		<td> </td>
+           <% end %>
+           
+           
+           <td><%= user.email %></td>
+           
+           <% if current_user %>
+            <td>
+              <%= link_to("编辑", edit_admin_user_path(user), class: "btn btn-sm btn-default") %>
+              <%= link_to("删除", admin_user_path(user), class: "btn btn-sm btn-default", method: :delete, data: { confirm: "确认删除用户？"}) %>
+
+
+
+              <% if !(user == current_user) %>
+              	<% if user.is_admin %>
+              		<%= link_to "改为普通用户", to_user_admin_user_path(user), method: :post, class: "btn btn-sm btn-primary" %>
+              	<% else %>
+              		<%= link_to "设为管理员", to_admin_admin_user_path(user), method: :post, class: "btn btn-sm btn-default" %>
+              	<% end %>
+                  
+              <% end %>
+
+
+            </td>
+
+            <td>
+              <% if resume = @resumes.find_by(user_id: user.id) %>
+                <%= link_to "Download Resume", resume.attachment_url %>
+              <% end %>
+            </td>
+
+
+           <% end %>
+
+			<% if @resumes.find_by_user_id(user.id) %>
+				<td><i class="fa fa-check" aria-hidden="true"></i></td>
+			<% else %>
+				<td><i class="fa fa-close" aria-hidden="true"></i></td>
+			<% end %>
+            
+            </tr>
+            <% end %>
+         </tbody>
+
+      </table>
+
+    </div>
+</div>
+
