@@ -18,7 +18,7 @@ class Admin::JobsController < ApplicationController
     @job = Job.find(params[:id])
   end
 
-  def created
+  def create
     @job =Job.new(job_params)
     if@job.save
       redirect_to admin_jobs_path
@@ -37,7 +37,7 @@ class Admin::JobsController < ApplicationController
   end
 
   def destroy
-    @job = job.find(params[:id])
+    @job = Job.find(params[:id])
     @job.destroy
     redirect_to admin_jobs_path
   end
@@ -60,8 +60,8 @@ class Admin::JobsController < ApplicationController
   private
 
 
-  def admin_jobs_path
-    params.repuire(:job).permit(:title, :descrption, :wage_upper_bound, :wage_lower_bound, :contact_email, :is_hidden)
+  def job_params
+    params.require(:job).permit(:title, :descrption, :wage_upper_bound, :wage_lower_bound, :contact_email, :is_hidden)
   end
 
 
