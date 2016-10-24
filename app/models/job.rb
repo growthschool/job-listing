@@ -7,7 +7,6 @@ class Job < ApplicationRecord
   scope :recent, -> { order("created_at DESC")}
 
   has_many :resumes
-  validates :attachment, presence: true
 
 
     def publish!
