@@ -5,14 +5,18 @@
 <br><br>
 
 <table class="table tbale-boldered">
+  <thead>
+    <tr>
+      <td>职缺</td>
+      <td>收到简历数量</td>
   <% @jobs.each do |job| %>
   <tr>
-    <td>
-      <td>
-
+  <td>
     <%= render_job_status(job) %>
     <%= link_to(job.title, admin_job_path(job)) %>
   </td>
+
+ <td> <%= job.resumes.count %> </td>
 
     <td>
       <%= link_to("Edit", edit_admin_job_path(job)) %>
