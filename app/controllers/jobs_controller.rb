@@ -3,7 +3,7 @@ class JobsController < ApplicationController
 
   def show
     @job = Job.find(params[:id])
-    @resumes = @job.resumes
+    @resumes = @job.resumes.order("created_at DESC")
 
     if @job.is_hidden
       flash[:warning] = "This Job has been archieved."
