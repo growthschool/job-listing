@@ -12,14 +12,16 @@
   <thead>
     <tr>
       <th>Name</th>
+      <th>User</th>
       <th>Download Link</th>
-      <th>&nbsp;</th>
+      <th>Remove</th>
     </tr>
   </thead>
   <tbody>
     <% @resumes.each do |resume| %>
       <tr>
         <td><%= resume.name %></td>
+        <td><%= resume.user.email %></td>
         <td><%= link_to "Download Resume", resume.attachment_url %></td>
         <td><%= link_to('Delete', job_resume_path(resume.job, resume), method: :delete, data: { confirm: "Are you sure?"}, class: "btn btn-default btn-xs") %></td>
 
