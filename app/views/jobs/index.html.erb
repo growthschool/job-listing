@@ -1,17 +1,30 @@
 <div class="col-md-12">
   <div class="job">
 
-  </div>
-  <table class="table table-hover">
-    <thead>
-      <tr>
-        <td>Job</td>
-        <td>description</td>
-        <td>Upper Bound Wage (￥)</td>
-        <td>Lower Bound Wage (￥)</td>
-        <td>Contact Email</td>
-      </tr>
-    </thead>
+    <div class="dropdown">
+      <button class="btn btn-default dropdown-toggle pull-right" type="button" data-toggle="dropdown">排序方式
+        <span class="caret"></span></button>
+
+        <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuDivider">
+          <li> <%= link_to("按照薪资下限排序", jobs_path(:order1 => "by_lower_bound")) %> </li>
+
+          <li> <%= link_to("按照薪资上限排序", jobs_path(:order1 => "by_upper_bound")) %> </li>
+
+          <li> <%= link_to("按照发表时间排序", jobs_path) %> </li>
+      </ul>
+    </div>
+
+
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <td>Job</td>
+          <td>description</td>
+          <td>Upper Bound Wage (￥)</td>
+          <td>Lower Bound Wage (￥)</td>
+          <td>Contact Email</td>
+        </tr>
+      </thead>
     <tbody>
       <% @jobs.each do |job| %>
 
