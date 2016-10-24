@@ -6,6 +6,9 @@ class User < ApplicationRecord
   # 该数据可关联多jobs
   has_many :jobs
 
+  # 一对多简历
+  has_many :resumes
+
   def admin?
     is_admin
   end

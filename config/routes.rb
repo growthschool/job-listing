@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   devise_for :users
-  resources :jobs
+  # job内包含简历
+  resources :jobs do
+    resources :resumes
+  end
 
   # admin路由
   namespace :admin do
