@@ -1,6 +1,15 @@
 Rails.application.routes.draw do
+  get 'resumes/index'
+
+  get 'resumes/new'
+
+  get 'resumes/create'
+
+  get 'resumes/destroy'
+
   devise_for :users
   resources :jobs
+  resources :resumes, only: [:index, :new, :create, :destroy]
   namespace :admin do
     resources :jobs do
       member do

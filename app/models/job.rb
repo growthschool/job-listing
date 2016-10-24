@@ -14,4 +14,5 @@ class Job < ActiveRecord::Base
     self.save
   end
 
+
 end
