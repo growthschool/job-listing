@@ -1,0 +1,50 @@
+<div class="dropdown pull-right">
+
+<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  排序
+</button>
+<ul class="dropdown-menu" aria-labelledby="dropdownDivider">
+ <li>
+   <a href="/jobs?order=by_upper_bound">按照薪资上线</a>
+ </li>
+ <li>
+   <a href="/jobs?order=by_lower_bound">按照薪资下线</a>
+ </li>
+ <li>
+   <a href="/jobs">按照发刊时间表排序</a>
+ </li>
+</ul>
+</div>
+
+<table class="table table-boldered">
+ <thead>
+   <tr>
+    <td>职缺</td>
+    <td>薪资上线</td>
+    <td>薪资下线</td>
+    <td>发刊时间</td>
+  </tr>
+ </thead>
+
+
+
+  <% @jobs.each do |job| %>
+  <tr>
+
+    <td>
+      <%= link_to(job.title, job_path(job)) %>
+    </td>
+
+    <td>
+      <%= job.wage_upper_bound %>
+    </td>
+    <td>
+      <%= job.wage_lower_bound %>
+
+    </td>
+    <td>
+      <%= job.created_at %>
+    </td>
+  </tr>
+  <% end %>
+</table>
