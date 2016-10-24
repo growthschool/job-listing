@@ -2,6 +2,26 @@
   <div class="job">
     <%= link_to("New Job Entry", new_job_path, class: "btn btn-primary pull-right") %>
   </div>
+
+  <div class="dropdown">
+  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+    Sort By
+    <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu" aria-labelledby="dropdownMenuDivider">
+    <li>
+      <a href="/jobs?order=by_minsalary">Min Salary</a>
+    </li>
+    <li>
+      <a href="/jobs?order=by_maxsalary">Max Salary</a>
+    </li>
+    <li>
+      <a href="/jobs">Posted Time</a>
+    </li>
+  </ul>
+  </div>
+
+
   <table class="table table-hover">
     <thead>
       <tr>
