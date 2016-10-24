@@ -17,12 +17,19 @@
                         Hi!, <%= current_user.email %>
                         <b class="caret"></b>
                    </a>
+                   <ul class="dropdown-menu" aria-labelledby="dropdownMenuDivider">
+                     <li><a href="/jobs?order=by_lower_bound">按照薪资下限排序</a></li>
+                     <li><a href="/jobs?order=by_upper_bound">按照薪资上限排序</a></li>
+                     <li><a href="/jobs?">按照发表时间排序</a></li>
+                   </ul>
                     <ul class="dropdown-menu">
                       <% if current_user.admin? %>
                         <li><%= link_to("Admin Panel",admin_jobs_path)%></li>
                         <% end %>
                         <li> <%= link_to("登出", destroy_user_session_path, method: :delete) %> </li>
-
+                        <li><%= link_to("按照薪资下限排序",jobs_path(:order => "by_lower_bound"))%></li>
+                        <li><%= link_to("按照薪资上限排序",jobs_path(:order => "by_upper_bound"))%></li>
+                        <li><%= link_to("按照发表时间排序",jobs_path)%></li>
                     </ul>
                   </li>
                 <% end %>
