@@ -21,6 +21,7 @@ class Admin::JobsController < ApplicationController
   # job的查看操作
   def show
     @job = Job.find(params[:id])
+    @resumes = @job.resumes
   end
 
   # job的编辑操作

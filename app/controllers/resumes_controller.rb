@@ -11,7 +11,7 @@ class ResumesController < ApplicationController
         @resume.user = current_user
 
         @resume.save
-        redirect_to job_resumes_path
+        redirect_to job_path(@job), notice: "Upload Success"
     end
 
     def new

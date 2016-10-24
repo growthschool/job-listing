@@ -11,13 +11,13 @@ class JobsController < ApplicationController
   def index
     # 逆向排序
     @jobs = case params[:order]
-    when 'by_lower_bound'
-      Job.where(is_publish: true).order('wage_lower_bound DESC')
-    when 'by_upper_bound'
-      Job.where(is_publish: true).order('wage_upper_bound DESC')
-    else
-      Job.where(is_publish: true).order("created_at DESC")
-    end
+              when 'by_lower_bound'
+                Job.where(is_publish: true).order('wage_lower_bound DESC')
+              when 'by_upper_bound'
+                Job.where(is_publish: true).order('wage_upper_bound DESC')
+              else
+                Job.where(is_publish: true).order("created_at DESC")
+            end
   end
 
   # job的新建表单渲染
@@ -29,6 +29,7 @@ class JobsController < ApplicationController
   # job的查看操作
   def show
     @job = Job.find(params[:id])
+    @resumes = @job.resumes
   end
 
   # job的编辑操作

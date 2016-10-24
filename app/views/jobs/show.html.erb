@@ -12,5 +12,8 @@
   <%= @job.wage_upper_bound %></p>
   <h6>联系方式</h6>
   <p><%= @job.contact_email %></p>
-  <%= link_to("Apply", new_job_resume_path(@job), class: "btn btn-default pull-right")%>
+  <%= link_to("申请", new_job_resume_path(@job), class: "btn btn-default pull-left")%>
+
+
+
 </div>

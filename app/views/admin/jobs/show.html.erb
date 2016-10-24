@@ -6,3 +6,24 @@
   <%= @job.wage_upper_bound %></p>
   <h6>联系方式</h6>
   <p><%= @job.contact_email %></p>
+  <br>
+  <hr>
+
+    <table class="table">
+    <thead>
+      <tr>
+        <th>用户名</th>
+        <th>简历文件</th>
+        <th>发表时间</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @resumes.each do |resume| %>
+        <tr>
+          <td><%= resume.user.email %></td>
+          <td><a href="<%= resume.attachment %>" target="_blank" class="btn btn-primary btn-xs">预览</a></td>
+          <td><%= resume.created_at %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
