@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 20161024050744) do
     t.text     "content"
     t.integer  "job_id"
     t.integer  "user_id"
+    t.string   "attachment"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

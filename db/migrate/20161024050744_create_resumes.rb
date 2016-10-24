@@ -4,6 +4,7 @@ class CreateResumes < ActiveRecord::Migration[5.0]
       t.text :content
       t.integer :job_id
       t.integer :user_id
+      t.string :attachment
 
       t.timestamps
     end

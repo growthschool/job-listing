@@ -4,14 +4,15 @@
   <%= simple_format(@job.description) %>
 </p>
 
-<%= link_to("Create your resume", new_job_resume_path(@job), class: "btn btn-default pull-right")%>
+<%= link_to("Apply Now", new_job_resume_path(@job), class: "btn btn-default pull-right")%>
 
 <table class="table">
     <thead>
       <tr>
         <th>简历内容</th>
-        <th>发表者</th>
-        <th>发表时间</th>
+        <th>投递者</th>
+        <th>投递时间</th>
+        <th>附件</th>
       </tr>
     </thead>
     <tbody>
@@ -20,6 +21,7 @@
           <td><%= resume.content %></td>
           <td><%= resume.user.email %></td>
           <td><%= resume.created_at %></td>
+          <td><%= resume.attachment %></td>
         </tr>
       <% end %>
     </tbody>

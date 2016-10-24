@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   end
 
   resources :jobs do
-    resources :resumes
+    resources :resumes, only: [:index, :new, :create, :destroy]
   end
   root 'jobs#index'
 end
