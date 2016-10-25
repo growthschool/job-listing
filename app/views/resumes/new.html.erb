@@ -1,0 +1,8 @@
+<h2 class="text-center">提交简历</h2>
+<div class="col-md-4 col-md-offset-4">
+  <%= simple_form_for [@job,@resume] do |f| %>
+  <%= f.input :content %>
+  <%= f.input :attachment %>
+  <%= f.submit "submit" %>
+  <% end %>
+</div>
