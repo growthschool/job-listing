@@ -8,24 +8,20 @@
   <p><%= @job.contact_email %></p>
   <br>
   <hr>
+  <p>投递 <span class="badge"><%= @resumes.length %></span></p>
 
-    <table class="table">
-    <thead>
-      <tr>
-        <th>用户名</th>
-        <th>简历文件</th>
-        <th>内容</th>
-        <th>发表时间</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @resumes.each do |resume| %>
-        <tr>
-          <td><%= resume.user.email %></td>
-          <td><a href="<%= resume.attachment %>" target="_blank" class="btn btn-primary btn-xs">预览</a></td>
-          <td><%= resume.content %></td>
-          <td><%= resume.created_at %></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
+<% @resumes.each do |resume| %>
+
+  <div class="panel panel-default">
+    <!-- Default panel contents -->
+    <div class="panel-heading"><%= resume.user.email %></div>
+    <div class="panel-body">
+      <p><%= resume.content %></p>
+      <hr>
+      <a href="<%= resume.attachment %>" target="_blank" class="btn btn-primary btn-xs">预览</a>
+    </div>
+
+  </div>
+
+<% end %>
+

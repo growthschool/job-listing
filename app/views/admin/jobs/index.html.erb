@@ -7,10 +7,11 @@
 <table class="table table-boldered">
 
 <tr>
-  <th>职位名</th>
-  <th>上传时间</th>
+  <th>职位 <span class="badge"><%= @jobs.count %></span></th>
+  <th>投递数</th>
   <th>发布状态</th>
   <th>发布者</th>
+  <th>发布时间</th>
   <th>操作</th>
 </tr>
   <% @jobs.each do |job| %>
@@ -24,9 +25,8 @@
     <td>
       <%= link_to(job.title, admin_job_path(job)) %>
     </td>
-    <td>
-      <%= job.created_at %>
-    </td>
+    <td><%= job.resumes.count %></td>
+
     <td>
       <% if job.is_publish %>
       <i class="fa fa-globe fa-lg"></i> 已发布 
@@ -37,6 +37,10 @@
     <td>
       <%= job.user.email %>
     </td> 
+    <td>
+      <%= job.created_at %>
+    </td>
+
     <td>
       <%= link_to("编辑", edit_admin_job_path(job)) %> |
       <%= link_to("删除", admin_job_path(job), :method => :delete, :data => { :confirm => "确定删除?" }) %> | 

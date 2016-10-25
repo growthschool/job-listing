@@ -10,7 +10,7 @@ class Admin::JobsController < ApplicationController
 
   # job的get
   def index
-    @jobs = Job.all      
+    @jobs = Job.all    
   end
 
   # job的新建表单渲染
