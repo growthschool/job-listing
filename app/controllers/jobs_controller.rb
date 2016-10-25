@@ -20,6 +20,9 @@ class JobsController < ApplicationController
             end
   end
 
+
+
+
   # job的新建表单渲染
   def new
     @job = Job.new
