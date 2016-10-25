@@ -1,5 +1,5 @@
 class ResumesController < ApplicationController
-
+    before_filter :authenticate_user!, only:[:new,:create,:update,:edit,:destroy]
   def index
     @resumes = Resume.all
   end
@@ -13,9 +13,10 @@ class ResumesController < ApplicationController
       @resume=Resume.new(resume_params)
       @resume.job = @job
       @resume.user = current_user
-      @resume.user = current_user
+
 
       if @resume.save
+          flash[:notice]="成功提交履历"
           redirect_to job_path(@job)
       else
         render :new
