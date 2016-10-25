@@ -1,7 +1,18 @@
 <h3>投递履历到<%= @job.title%></h3>
+<% if !@resume.errors.empty? %>
+  <div class="alert alert-error">
+    <ul>
+      <% @resume.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
 <hr>
+ <div>
 <%= simple_form_for [@job,@resume] do |f| %>
 <%= f.input :content %>
-<%= f.input :attachment %> 
-<%= f.submit "送出" %>
+<%= f.input :attachment %>
+<%= f.submit "送出" , class: "btn btn-primary" %>
 <% end %>
+</div>
