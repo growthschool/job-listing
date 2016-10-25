@@ -1,0 +1,11 @@
+<h4> 圣旨到了 <%= @job.title %> <h4>
+
+  <hr>
+
+  <%= simple_form_for [@job, @resume] do |f| %>
+  <%= f.input :content %>
+
+<%= f.input :attachment %>
+
+  <%= f.submit "send" %>
+  <% end %>
