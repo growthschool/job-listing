@@ -19,4 +19,5 @@ class Job < ApplicationRecord
     self.save
   end
 
+
  end
