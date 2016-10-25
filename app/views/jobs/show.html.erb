@@ -1,0 +1,16 @@
+<br>岗位名称
+<h1> <%= @job.title %> </h1>
+<br>岗位要求
+<p>
+  <%= simple_format(@job.description) %>
+</p>
+<br>薪资上限
+<p>
+  <%= @job.wage_upper_bound %>
+</p>
+<br>薪资下限
+<br>
+<%= @job.wage_upper_bound %>
+<br>联系方式
+<br>
+<%= @job.contact_email %>
