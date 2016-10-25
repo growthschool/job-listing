@@ -19,7 +19,7 @@ class ResumesController < ApplicationController
    if @resume.save
      redirect_to job_path(@job), notice: "The resume has been uploaded."
    else
-     render "new"
+     render :new
    end
 
  end
