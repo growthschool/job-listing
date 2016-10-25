@@ -13,5 +13,5 @@ class User < ApplicationRecord
   end
 
   has_many :groups
-  has_many :posts
+  has_many :resumes
 end

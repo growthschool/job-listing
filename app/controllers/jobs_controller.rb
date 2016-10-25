@@ -18,7 +18,7 @@ before_filter :authenticate_user!, only: [:new, :create, :update, :edit, :destro
 
    def show
      @job = Job.find(params[:id])
-     @posts = @job.posts
+     @resumes = @job.resumes
 
      if @job.is_hidden
        flash[:warning] = "This Job already archieved"

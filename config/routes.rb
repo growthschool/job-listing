@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   devise_for :users
   resources :jobs do
-    resources :posts
+    resources :resumes
   end
   root 'jobs#index'
 
@@ -12,6 +12,7 @@ Rails.application.routes.draw do
         post :publish
         post :hide
       end
+    resources :resumes
     end
   end
 
