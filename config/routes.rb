@@ -5,6 +5,8 @@ Rails.application.routes.draw do
         post :publish
         post :hide
       end
+
+      resources :resumes
     end
   end
   devise_for :users
