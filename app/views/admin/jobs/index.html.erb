@@ -1,0 +1,56 @@
+<div class="pull-right">
+  <%= link_to("发布职位", new_admin_job_path, :class => "btn btn-default" ) %>
+</div>
+
+<br><br>
+
+<table class="table table-boldered">
+
+<tr>
+  <th>职位 <span class="badge"><%= @jobs.count %></span></th>
+  <th>投递数</th>
+  <th>发布状态</th>
+  <th>发布者</th>
+  <th>发布时间</th>
+  <th>操作</th>
+</tr>
+  <% @jobs.each do |job| %>
+      <!-- 修饰是否发布 -->
+      <% if job.is_publish %>
+      <tr class="success">
+      <% else %>
+      <tr  class="danger">
+      <% end %>
+
+    <td>
+      <%= link_to(job.title, admin_job_path(job)) %>
+    </td>
+    <td><%= job.resumes.count %></td>
+
+    <td>
+      <% if job.is_publish %>
+      <i class="fa fa-globe fa-lg"></i> 已发布 
+      <% else %>
+      <i class="fa fa-lock fa-lg"></i> 未发布 
+      <% end %>
+    </td>
+    <td>
+      <%= job.user.email %>
+    </td> 
+    <td>
+      <%= job.created_at %>
+    </td>
+
+    <td>
+      <%= link_to("编辑", edit_admin_job_path(job)) %> |
+      <%= link_to("删除", admin_job_path(job), :method => :delete, :data => { :confirm => "确定删除?" }) %> | 
+      <% if job.is_publish %>
+      <%= link_to("撤回", private_admin_job_path(job) , :method => :post) %>
+      <% else %>
+
+      <%= link_to("发布", publish_admin_job_path(job) , :method => :post) %>
+      <% end %>
+    </td>
+  </tr>
+  <% end %>
+</table>
