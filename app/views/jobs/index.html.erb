@@ -25,26 +25,12 @@
     <td>发刊时间</td>
   </tr>
  </thead>
-
-
-
   <% @jobs.each do |job| %>
   <tr>
-
-    <td>
-      <%= link_to(job.title, job_path(job)) %>
-    </td>
-
-    <td>
-      <%= job.wage_upper_bound %>
-    </td>
-    <td>
-      <%= job.wage_lower_bound %>
-
-    </td>
-    <td>
-      <%= job.created_at %>
-    </td>
+    <td><%= link_to(job.title, job_path(job)) %></td>
+    <td><%= job.wage_upper_bound %></td>
+    <td><%= job.wage_lower_bound %></td>
+    <td><%= job.created_at %></td>
   </tr>
   <% end %>
 </table>
