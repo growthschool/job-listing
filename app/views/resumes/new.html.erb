@@ -1,0 +1,12 @@
+<h2>新建简历</h2>
+
+<%= @job.title %>
+<%= @job.description %>
+<br><br>
+<%= simple_form_for [@job,@resume] do |f| %>
+<%= f.input :name %>
+<%= f.input :attachment %>
+
+<%= f.submit "Submit" %>
+
+<% end %>
