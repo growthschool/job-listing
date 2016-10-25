@@ -1,12 +1,12 @@
-<h2 class="text-center">新增应聘书</h2>
 
-<div class="col-md-4 col-md-offset-4">
+<h3 提交履历到 <%= @job.title %> </h3>
+
+<hr>
+
   <%= simple_form_for [@job,@resume] do |f| %>
-    <div class="form-job"
-     <%= f.input :content, input_html: { class: "form-control"} %>
-   </div>
-   <div class="form-actions">
-      <%= f.submit "Submit", disable_with: "Submiting...", class: "btn btn-primary"%>
-    </div>
-    <% end %>
-</div>
+    <%= f.input :content %>
+    <%= f.input :attachment %>
+
+    <%= f.submit "送出" %>
+
+  <% end %>

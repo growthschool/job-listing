@@ -1,5 +1,5 @@
 class Job < ActiveRecord::Base
-  belongs_to :user
+
   has_many :resumes
 
  validates :title, presence: true
