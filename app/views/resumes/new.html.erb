@@ -1,0 +1,10 @@
+
+<%= simple_form_for [@job, @resume] do |f| %>
+
+<div class="form-job">
+  <%= f.input :content %>
+  <%= f.input :attachment %>
+
+</div>
+<%= f.submit "Submit", class: "btn btn-primary", data: { disable_with: "Submitting..." } %>
+<% end %>
