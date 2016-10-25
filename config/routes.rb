@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
   devise_for :users
 
-  resources :jobs
+  resources :jobs do
+    resources :resumes
+  end
 
-  root 'jobs#index'
 
   namespace :admin do
     resources :jobs do
@@ -13,4 +14,5 @@ Rails.application.routes.draw do
     end
   end
  end
+ root 'jobs#index'
 end
