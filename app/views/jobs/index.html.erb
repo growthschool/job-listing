@@ -5,8 +5,8 @@
   <%#= link_to("排序",jobs_path,:calss => "dropdown_menu")%>
   <!-- <div> -->
   <%#= link_to("排序",jobs_path,:class =>"btn btn-default")%>
-<div class="dropdown pull-right" >
-  <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">排序
+<div class="dropdown clearfix pull-right" >
+  <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuDivider" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">排序
   <span class="caret"></span>
   </button>
 
@@ -22,6 +22,20 @@
 <br><br>
 
 <table class="table table-boldered">
+  <thead>
+    <tr>
+      <td>
+        职缺
+      </td>
+      <td>
+        薪资上限
+      </td>
+      <td>
+        薪资下限
+      </td>
+      刊登时间
+    </tr>
+  </thead>
   <% @jobs.each do |job| %>
   <tr>
     <td>
