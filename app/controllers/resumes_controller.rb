@@ -2,11 +2,12 @@ class ResumesController < ApplicationController
   before_action :authenticate_user! , only: [:create, :update, :destroy, :edit]
 
   def index
-      @resumes = Resume.all
+    #@resumes = Resume.all
+    # @job = Job.find(params[:job_id])
+    @resumes = Job.find(params[:job_id]).resumes.order('created_at DESC')
   end
-
   def new
-      @resume = Resume.new
+    @resume = Resume.new
   end
 
   def create
