@@ -4,7 +4,7 @@ class Admin::JobsController < ApplicationController
   layout "admin"
   def show
     @job = Job.find(params[:id])
-    #@job = @job.resumes 
+    @resumes = @job.resumes
   end
 
   def index
