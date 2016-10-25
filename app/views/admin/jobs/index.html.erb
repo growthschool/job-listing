@@ -24,8 +24,7 @@
       <%= link_to(job.title, admin_job_path(job)) %>
     </td>
     <td>
-      <%= job.resumes.count %>
-    </td>
+        <%= link_to(job.resumes.count, admin_job_resumes_path(job)) %>
     <td>
       <%= job.wage_lower_bound%>
     </td>
