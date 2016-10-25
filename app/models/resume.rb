@@ -19,7 +19,7 @@ class Resume < ApplicationRecord
 
     # 不能为空
     validates :content, presence: true
-    validates :attachment, presence: true
+    # validates :attachment, presence: true
     #validates_presence_of :attachment
     
 

@@ -18,7 +18,11 @@
     <div class="panel-body">
       <p><%= resume.content %></p>
       <hr>
-      <a href="<%= resume.attachment %>" target="_blank" class="btn btn-primary btn-xs">预览</a>
+      <% if resume.attachment.present? %>
+      <a href="<%= resume.attachment_url %>" target="_blank" class="btn btn-primary btn-xs">预览</a>
+      <% else %>
+      <p>无附件</p>
+      <% end %>
     </div>
 
   </div>
