@@ -1,0 +1,16 @@
+<table class="table">
+    <thead>
+      <tr>
+        <th>简历内容</th>
+        <th>下载</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @resumes.each do |resume| %>
+        <tr>
+          <td><%= resume.content %></td>
+          <td><%= resume.attachment %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>

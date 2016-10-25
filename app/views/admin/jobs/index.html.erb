@@ -15,9 +15,7 @@
     <%= render_job_status(job) %>
     <%= link_to(job.title, admin_job_path(job)) %>
   </td>
-
- <td> <%= job.resumes.count %> </td>
-
+    <td> <%= job.resumes.count %> </td>
     <td>
       <%= link_to("Edit", edit_admin_job_path(job)) %>
       |
