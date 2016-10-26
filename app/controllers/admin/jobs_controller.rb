@@ -25,7 +25,7 @@ class Admin::JobsController < ApplicationController
   def create
     @job = Job.new(job_params)
 
-    if @job.save
+    if @job.save!
       redirect_to admin_jobs_path
     else
       render :new
@@ -67,7 +67,7 @@ class Admin::JobsController < ApplicationController
 
     redirect_to :back
   end
-  
+
   private
 
   def job_params
