@@ -8,4 +8,12 @@ class Admin::ResumesController < ApplicationController
     @job = Job.find(params[:job_id])
     @resumes = @job.resumes.order('created_at DESC')
   end
+
+  def require_is_admin
+    if !current_user.admin?
+      flash[:alert] = 'you are not admin'
+
+      redirect_to root_path
+    end
+  end
 end
