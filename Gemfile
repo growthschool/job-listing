@@ -1,4 +1,4 @@
-source 'https://rubygems.org'
+source 'https://gems.ruby-china.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -34,6 +34,13 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
 end
+
+gem 'bootstrap-sass'
+gem 'simple_form'
+gem 'devise'
+gem "font-awesome-rails"
+gem 'carrierwave'
+gem 'annotate'
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
