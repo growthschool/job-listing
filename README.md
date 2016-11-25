@@ -23,3 +23,4 @@ Things you may want to cover:
 
 * ...
 This is my first week assignment
+see it
