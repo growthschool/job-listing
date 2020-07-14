@@ -1,0 +1,41 @@
+<div class="container-fluid">
+  <div class="job">
+    <%= link_to("New job", new_job_path, class: "btn btn-primary pull-right") %>
+  </div>
+      <h2 class="text-center">Admin Panel</h2>
+      <table class="table">
+        <thead>
+          <tr>
+            <th> # </th>
+            <th> Title </th>
+            <th> Description </th>
+            <th> Last Update </th>
+            <td>Upper Wage Bound</td>
+            <td>Lower Wage Bound</td>
+            <td>Contact Email</td>
+          </tr>
+        </thead>
+        <tbody>
+          <% @jobs.each do |job| %>
+          <tr>
+            <td> <%= render_job_status(job) %> </td>
+            <td> <%= link_to(job.title, job_path(job)) %> </td>
+            <td> <%= job.description %> </td>
+            <td> <%= job.updated_at %> </td>
+            <td><%= job.wage_upper_bound %></td>
+            <td><%= job.wage_lower_bound %></td>
+            <td><%= job.contact_email %></td>
+            <td>
+              <%= link_to('Edit', edit_admin_job_path(job), class: "btn btn-default btn-xs") %>
+              <%= link_to('Delete', admin_job_path(job), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-default btn-xs") %>
+              <% if job.is_hidden %>
+                <%= link_to('Publish', publish_admin_job_path(job), method: :post, class: "btn btn-xs btn-default") %>
+              <% else %>
+                <%= link_to('Hide', hide_admin_job_path(job), method: :post, class: "btn btn-xs btn-default") %>
+              <% end %>
+            </td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+</div>
